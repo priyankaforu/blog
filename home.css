@@ -137,8 +137,8 @@
     margin-left: 28%;
     display: flex;
     gap: 10%;
-    padding-top: 1%;
-    padding-bottom: 4%;
+    padding-top: 4%;
+    padding-bottom: 3%;
   }
   
   .endLinks a {
@@ -249,7 +249,7 @@
     .endLinks {
       width: 80%;
       margin: 1rem auto;
-      justify-content: center;
+      justify-content: left;
     }
     
     .blogging p:first-child {
