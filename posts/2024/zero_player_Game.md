@@ -8,8 +8,8 @@ In the 1940s, John Von Neumann was working on self-replicating systems and the c
 The concept of this Cellular Automaton became famous when the Mathematician, Martin Gardener published an article in the Mathematical Games column of Scientific American Magazine (Refer to Issue:<a href="https://www.scientificamerican.com/issue/sa/1970/10-01/" target="_blank"> 1970, October 10th</a>). Conway, a Mathematician who has several noticeable works in  Mathematics came up with his amazing work of making the cell unpredictable. Though the inspiration is from Jon Von Neumann’s model, unlike Von Neumann’s 29 states of the cell, Conway’s model has only one square with the two states. The square should be either alive or dead. The dead cells can become alive and vice versa. The rules are very simple, yet the outcomes are completely unpredictable.<br></br>
 
 <p style="display: flex; justify-content: center; align-items: center; gap: 20px;margin-top: 30px; margin-bottom: 30px">
-<img src="/images/image1.png" alt="A green colored cell, represing the living cell" width="30%">
-<img src="/images/image2.png" alt="The 8 cells that surrounding the green cell are neighbors" width="30%">
+<img src="images/image1.png" alt="A green colored cell, represing the living cell" width="30%">
+<img src="images/image2.png" alt="The 8 cells that surrounding the green cell are neighbors" width="30%">
 </p>
 
 The alive state is highlighted here in the above figure as “Green” and any other cell that is not highlighted is a dead cell. Every cell has 8 neighbours, For instance, observe that green cell in the image. All the red cells are neighbours of the green cell.
@@ -24,14 +24,14 @@ The alive state is highlighted here in the above figure as “Green” and any o
 The important thing to note here is the grid follows the <a href="https://en.wikipedia.org/wiki/Toroidal_coordinates" target="_blank">Toroidal approach </a> which is nothing but the wrapped grid. That means if you take any edges or corners of the grid, the neighbours lie on all the opposite ends of the grid. For example, consider the grid in the figure below. The neighbours of <span style ="font-style: italic;">(0,0) are {(0,1),(1,0),(1,1)}, {(0,7),(7,1)} and the bottom right corner one (7,8)</span>. Just like wrapping it to the ends of the grid <span style="font-style: italic; opacity: 0.4;">(Marked as '*')</span><br></br>
 
 <figure style="margin: 0 auto; width: 40%; text-align: center;">
-  <img src="/images/image3.png" alt="The 7*8 grid" style="width: 100%; display: block;">
+  <img src="images/image3.png" alt="The 7*8 grid" style="width: 100%; display: block;">
   <figcaption style="margin-bottom: 16px;font-weight: 300; opacity: 0.7;font-style: italic;">(The 7*8 grid)</figcaption>
 </figure>
 
 Let us simulate by inputting random cells, observe the four sequential grids <span style="font-style: italic; opacity: 0.8;">(figure 1 to 4)</span> to understand and analyse the process of automaton. At some point all the cells can be dead or the cell can form the symmetry and once the symmetry  is reached it can never be gone. Look at these <a href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life#Examples_of_patterns" target="_blank"> structures </a>for a detailed understanding.
 
 <figure style="margin: 0 auto; width: 100%; text-align: center;">
-  <img src="/images/image4.png" alt="The 7*8 grid" style="padding-top: 16px;width: 100%; display: block;">
+  <img src="images/image4.png" alt="The 7*8 grid" style="padding-top: 16px;width: 100%; display: block;">
   <figcaption style="margin-bottom: 16px;font-weight: 300; opacity: 0.7;font-style: italic;">(The sequence of automaton)</figcaption>
 </figure>
 
