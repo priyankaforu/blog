@@ -89,7 +89,7 @@ footer {
 /* Responsive styles */
 @media (max-width: 768px) {
     body {
-        max-width: 84%;
+        max-width: 86%;
     }
     nav {
         flex-direction: column;
