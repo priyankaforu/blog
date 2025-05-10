@@ -1,7 +1,7 @@
 const config = {
     blogContentElement: 'blog-content',
     postsDirectories: [],
-    defaultPost: 'posts/2024/Being_Priceless.md'
+    defaultPost: './posts/2024/Being_Priceless.md'
   }
   
   document.addEventListener('DOMContentLoaded', () => {
