@@ -1,7 +1,7 @@
 <h1 style="text-align: center;">
 Being Priceless
 </h1><br></br>
-<img src="/images/image5.png" alt="The 7*8 grid" style="width: 100%; display: block;"><br></br>
+<img src="images/image5.png" alt="The 7*8 grid" style="width: 100%; display: block;"><br></br>
 What is the price that I can get your time for? Answer yourself! And reread this question. Are you a programmer, scientist, teacher, or maybe a designer? So can I get you for $25 per hour or $40, $50 probably? What do you think?<br></br>
 
 As we aren’t interacting with each other. I assume that you can be any full-stack developer and earn $40 dollars per hour<span style="font-style: italic; opacity: 0.6;"> (Ignoring the tax deductions)</span>. Would you get hired by me if I offered you $35 per hour and the same benefits that your company offers? Assume everything is the same, but the only difference between the company you are working for now and working under me is “freedom”. I offer you freedom, I am not the boss, I will be your co-worker. <br></br>
