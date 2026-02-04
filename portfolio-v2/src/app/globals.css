@@ -1,0 +1,291 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #0a0a0a;
+  --primary: #3b82f6;
+  --muted: #f4f4f5;
+  --muted-foreground: #71717a;
+  --border: #e4e4e7;
+  --card: #f9fafb;
+}
+
+.dark {
+  --background: #0a0a0a;
+  --foreground: #fafafa;
+  --primary: #60a5fa;
+  --muted: #27272a;
+  --muted-foreground: #a1a1aa;
+  --border: #27272a;
+  --card: #18181b;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+}
+
+/* Use Onest for headings */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Onest', var(--font-geist-mono), monospace;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--muted);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--muted-foreground);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--foreground);
+  opacity: 0.5;
+}
+
+/* Blog post hover styles - Light mode */
+.blog-post-link {
+  background-color: transparent;
+}
+
+.blog-post-title {
+  color: #18181b;
+}
+
+.blog-post-date {
+  color: #71717a;
+}
+
+.blog-post-icon {
+  color: #a1a1aa;
+}
+
+.blog-post-link:hover {
+  background-color: #3f3f46;
+}
+
+.blog-post-link:hover .blog-post-title {
+  color: #ffffff;
+}
+
+.blog-post-link:hover .blog-post-date {
+  color: #d4d4d8;
+}
+
+.blog-post-link:hover .blog-post-icon {
+  color: #ffffff;
+}
+
+/* Blog post hover styles - Dark mode */
+.dark .blog-post-title {
+  color: #fafafa;
+}
+
+.dark .blog-post-date {
+  color: #a1a1aa;
+}
+
+.dark .blog-post-icon {
+  color: #a1a1aa;
+}
+
+.dark .blog-post-link:hover {
+  background-color: rgba(39, 39, 42, 0.5);
+}
+
+.dark .blog-post-link:hover .blog-post-title {
+  color: #60a5fa;
+}
+
+.dark .blog-post-link:hover .blog-post-date {
+  color: #d4d4d8;
+}
+
+.dark .blog-post-link:hover .blog-post-icon {
+  color: #60a5fa;
+}
+
+/* Skill badge styles - Light mode */
+.skill-badge {
+  background-color: #3f3f46;
+  border-color: #3f3f46;
+  color: #ffffff;
+}
+
+.skill-badge:hover {
+  background-color: #3b82f6;
+  border-color: #3b82f6;
+  color: #ffffff;
+}
+
+/* Skill badge styles - Dark mode */
+.dark .skill-badge {
+  background-color: #27272a;
+  border-color: #3f3f46;
+  color: #fafafa;
+}
+
+.dark .skill-badge:hover {
+  background-color: #60a5fa;
+  border-color: #60a5fa;
+  color: #18181b;
+}
+
+/* Blog post card styles (All Posts page) - Light mode */
+.blog-post-card {
+  border-color: #e4e4e7;
+  background-color: transparent;
+}
+
+.blog-post-card-title {
+  color: #18181b;
+}
+
+.blog-post-card-excerpt {
+  color: #52525b;
+}
+
+.blog-post-card-date {
+  color: #71717a;
+}
+
+.blog-post-card-icon {
+  color: #a1a1aa;
+}
+
+.blog-post-card:hover {
+  border-color: #3f3f46;
+  background-color: #3f3f46;
+}
+
+.blog-post-card:hover .blog-post-card-title {
+  color: #ffffff;
+}
+
+.blog-post-card:hover .blog-post-card-excerpt {
+  color: #d4d4d8;
+}
+
+.blog-post-card:hover .blog-post-card-date {
+  color: #d4d4d8;
+}
+
+.blog-post-card:hover .blog-post-card-icon {
+  color: #ffffff;
+}
+
+/* Blog post card styles (All Posts page) - Dark mode */
+.dark .blog-post-card {
+  border-color: #27272a;
+}
+
+.dark .blog-post-card-title {
+  color: #fafafa;
+}
+
+.dark .blog-post-card-excerpt {
+  color: #a1a1aa;
+}
+
+.dark .blog-post-card-date {
+  color: #71717a;
+}
+
+.dark .blog-post-card-icon {
+  color: #a1a1aa;
+}
+
+.dark .blog-post-card:hover {
+  border-color: #3f3f46;
+  background-color: rgba(39, 39, 42, 0.5);
+}
+
+.dark .blog-post-card:hover .blog-post-card-title {
+  color: #60a5fa;
+}
+
+.dark .blog-post-card:hover .blog-post-card-excerpt {
+  color: #d4d4d8;
+}
+
+.dark .blog-post-card:hover .blog-post-card-date {
+  color: #d4d4d8;
+}
+
+.dark .blog-post-card:hover .blog-post-card-icon {
+  color: #60a5fa;
+}
+
+/* Glassmorphism buttons */
+.glass-button {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 9999px;
+  transition: all 0.3s ease;
+}
+
+.glass-button:hover {
+  background: #3b82f6;
+  border-color: #3b82f6;
+  color: #ffffff;
+}
+
+/* Light mode glass effect */
+:not(.dark) .glass-button {
+  background: rgba(0, 0, 0, 0.03);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+:not(.dark) .glass-button:hover {
+  background: #3b82f6;
+  border-color: #3b82f6;
+  color: #ffffff;
+}
+
+
+/* Tweet embed styles */
+.tweet-container {
+  --tweet-container-margin: 0;
+}
+
+.tweet-container [data-theme="light"] {
+  --tweet-bg-color: #18181b;
+  --tweet-border: 1px solid #27272a;
+}
+
+/* Override react-tweet styles for dark theme */
+[data-theme="light"] {
+  --tweet-bg-color: rgba(24, 24, 27, 0.5);
+  --tweet-bg-color-hover: rgba(39, 39, 42, 0.5);
+  --tweet-border: 1px solid #27272a;
+  --tweet-color-text-primary: #fafafa;
+  --tweet-color-text-secondary: #a1a1aa;
+  --tweet-color-text-secondary-hover: #d4d4d8;
+  --tweet-color-blue-primary: #60a5fa;
+  --tweet-color-blue-secondary: #3b82f6;
+  --tweet-font-family: inherit;
+}
+
+
+/* Hide scrollbar */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
