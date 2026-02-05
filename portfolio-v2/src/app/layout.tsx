@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     description: "I ship products in hours, not months. End-to-end solutions, any tech stack. Got chaos? I fix it. From bug nightmares to broken systems — I'm here to help you build what matters.",
     images: [
       {
-        url: "/profile.png",
+        url: "https://priyankapudi.com/profile.png",
         width: 800,
         height: 800,
         alt: "Priyanka Pudi - Developer & Product Builder",
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     title: "Priyanka Pudi | Freelancer, Builder, Problem Solver, Your Next Best Hire",
     description: "I ship products in hours, not months. End-to-end solutions, any tech stack. Got chaos? I fix it.",
     creator: "@priyankapudi",
-    images: ["/profile.png"],
+    images: ["https://priyankapudi.com/profile.png"],
   },
   robots: {
     index: true,

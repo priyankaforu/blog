@@ -36,6 +36,7 @@ export function Hero({ profile }: HeroProps) {
   const [showFullImage, setShowFullImage] = useState(false)
   const [showEmail, setShowEmail] = useState(false)
   const [copied, setCopied] = useState(false)
+  const [linkCopied, setLinkCopied] = useState(false)
 
   const email = "priyankapudi4u@gmail.com"
 
@@ -64,6 +65,30 @@ export function Hero({ profile }: HeroProps) {
       setCopied(false)
       setShowEmail(false)
     }, 1000)
+  }
+
+  const handleShareProfile = async () => {
+    const url = 'https://priyankapudi.com'
+    
+    // Check if it's a mobile device with native share
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent)
+    
+    if (isMobile && navigator.share) {
+      try {
+        await navigator.share({
+          title: 'Priyanka Pudi | Freelancer & Builder',
+          text: 'Check out Priyanka Pudi - She ships products in hours, not months!',
+          url: url
+        })
+      } catch (err) {
+        // User cancelled share
+      }
+    } else {
+      // Desktop/tablet: copy URL and show feedback
+      await navigator.clipboard.writeText(url)
+      setLinkCopied(true)
+      setTimeout(() => setLinkCopied(false), 2000)
+    }
   }
 
   // Close email popup when clicking outside
@@ -122,10 +147,22 @@ export function Hero({ profile }: HeroProps) {
             priority
           />
         </div>
-        <div>
-          <h1 className="text-lg sm:text-xl font-bold tracking-wide mb-0.5">
-            {data.name}
-          </h1>
+        <div className="flex-1">
+          <div className="flex items-center gap-2">
+            <h1 className="text-lg sm:text-xl font-bold tracking-wide">
+              {data.name}
+            </h1>
+            <button
+              onClick={handleShareProfile}
+              className="cursor-pointer flex items-center gap-1.5"
+              title="Share profile"
+            >
+              <span className="w-6 h-6 flex items-center justify-center rounded border border-blue-500 hover:border-blue-400 transition-colors">
+                <i className="bi bi-box-arrow-up text-white text-sm" />
+              </span>
+              {linkCopied && <span className="text-xs text-green-400">Link copied!</span>}
+            </button>
+          </div>
           {data.socials?.[1] && (
             <a 
               href={data.socials[1].url}
@@ -186,11 +223,20 @@ export function Hero({ profile }: HeroProps) {
           href="https://x.com/priyankapudi"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 px-5 py-2.5 text-sm rounded-full bg-zinc-800/60 border border-green-500 hover:border-green-400 transition-all"
+          className="inline-flex items-center gap-2 px-3 py-2 sm:px-5 sm:py-2.5 text-xs sm:text-sm rounded-full bg-zinc-800/60 border border-green-500 hover:border-green-400 transition-all"
         >
-          <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+          <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-green-500 animate-pulse" />
           I am super active here, just hire me with dm
-          <i className="bi bi-twitter-x text-sm" />
+          <i className="bi bi-twitter-x text-xs sm:text-sm" />
+        </a>
+        <a
+          href="https://topmate.io/priyankapudi"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 px-3 py-2 sm:px-5 sm:py-2.5 text-xs sm:text-sm rounded-full bg-zinc-800/60 border border-blue-500 hover:border-blue-400 transition-all"
+        >
+          <i className="bi bi-calendar-check text-xs sm:text-sm" />
+          Book a call to discuss your ideas
         </a>
         {data.resumeUrl && (
           <a
