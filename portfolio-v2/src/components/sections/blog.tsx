@@ -92,53 +92,9 @@ export function Blog({ posts = [] }: BlogProps) {
         </a>
       </div>
 
-      {/* Recent Sanity Posts */}
-      <div className="space-y-3">
-        {displayPosts.slice(0, 3).map((post) => (
-          <Link
-            key={post._id}
-            href={`/blog/${post.slug.current}`}
-            className="group flex gap-3 p-3 rounded-lg bg-zinc-800/40 border border-zinc-700 hover:border-blue-500 transition-all"
-          >
-            {/* Cover Image */}
-            {post.coverImage && (
-              <div className="relative w-16 h-16 rounded-md overflow-hidden shrink-0">
-                <Image
-                  src={urlFor(post.coverImage).width(128).height(128).url()}
-                  alt={post.title}
-                  fill
-                  className="object-cover"
-                />
-              </div>
-            )}
-            
-            {/* Post Info */}
-            <div className="flex-1 min-w-0">
-              <h3 className="text-sm font-medium text-zinc-200 group-hover:text-blue-400 transition-colors truncate">
-                {post.title}
-              </h3>
-              {post.excerpt && (
-                <p className="text-xs text-zinc-500 line-clamp-2 mt-0.5">
-                  {post.excerpt}
-                </p>
-              )}
-              <span className="text-xs text-zinc-600 mt-1 block">
-                {formatDate(post.publishedAt)}
-              </span>
-            </div>
-
-            <i className="bi bi-arrow-up-right text-sm text-zinc-500 group-hover:text-blue-400 transition-colors shrink-0" />
-          </Link>
-        ))}
-
-        {/* View All Link */}
-        <Link
-          href="/blog"
-          className="inline-flex items-center gap-1 text-xs text-zinc-500 hover:text-blue-400 transition-colors mt-2"
-        >
-          View all posts
-          <i className="bi bi-arrow-right" />
-        </Link>
+      {/* Coming Soon */}
+      <div className="flex items-center justify-center py-12">
+        <p className="text-zinc-500 text-sm">Coming soon...</p>
       </div>
     </section>
   )

@@ -83,11 +83,11 @@ export function Projects({ projects }: ProjectsProps) {
             href={project.liveUrl || project.githubUrl || "#"}
             target="_blank"
             rel="noopener noreferrer"
-            className="group flex gap-4 p-4 rounded-xl bg-zinc-900/50 border border-zinc-800 hover:border-blue-500 transition-all"
+            className="group flex flex-col md:flex-row gap-4 p-4 rounded-xl bg-zinc-900/50 border border-zinc-800 hover:border-blue-500 transition-all relative"
           >
             {/* Project Screenshot */}
             {project.image && (
-              <div className="relative w-52 h-32 rounded-lg overflow-hidden shrink-0 bg-zinc-800">
+              <div className="relative w-full md:w-52 h-40 md:h-32 rounded-lg overflow-hidden shrink-0 bg-zinc-800">
                 <Image
                   src={project.image}
                   alt={project.title}
@@ -99,8 +99,8 @@ export function Projects({ projects }: ProjectsProps) {
             
             {/* Project Info */}
             <div className="flex-1 flex flex-col justify-center">
-              <div className="flex items-center gap-3 mb-2">
-                <h4 className="text-lg font-medium text-zinc-100 group-hover:text-blue-400 transition-colors">
+              <div className="flex flex-wrap items-center gap-2 md:gap-3 mb-2">
+                <h4 className="text-base md:text-lg font-medium text-zinc-100 group-hover:text-blue-400 transition-colors">
                   {project.title}
                 </h4>
                 {project.badge && (
@@ -129,7 +129,7 @@ export function Projects({ projects }: ProjectsProps) {
               )}
             </div>
 
-            <i className="bi bi-arrow-up-right text-xl text-zinc-600 group-hover:text-blue-400 transition-colors shrink-0 self-start mt-1" />
+            <i className="bi bi-arrow-up-right text-xl text-zinc-600 group-hover:text-blue-400 transition-colors shrink-0 absolute top-4 right-4 md:static md:self-start md:mt-1" />
           </a>
         ))}
       </div>

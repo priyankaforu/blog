@@ -35,14 +35,20 @@ function TweetCard({ id }: { id: string }) {
 
 function TweetRow({ ids, label }: { ids: string[], label: string }) {
   return (
-    <div className="mb-4">
-      <p className="text-[10px] text-zinc-500 mb-2 uppercase tracking-wider">{label}</p>
+    <div className="mb-6">
+      <p className="text-xs text-zinc-500 mb-1 uppercase tracking-wider">{label}</p>
       <div className="flex flex-wrap gap-2">
         {ids.map((id) => (
           <TweetCard key={id} id={id} />
         ))}
       </div>
     </div>
+  )
+}
+
+function SectionDivider() {
+  return (
+    <div className="border-t border-dashed border-zinc-700 my-6" />
   )
 }
 
@@ -58,7 +64,7 @@ export function Testimonials() {
       <div className="space-y-6">
         {/* Products Section */}
         <div>
-          <h3 className="text-sm font-medium text-zinc-300 mb-3 flex items-center gap-1.5">
+          <h3 className="text-base font-medium text-zinc-300 mb-3 flex items-center gap-1.5">
             <i className="bi bi-box text-blue-400" />
             What people say about my <span className="text-blue-400">products</span>
           </h3>
@@ -67,9 +73,11 @@ export function Testimonials() {
           <TweetRow ids={testimonials.products.jadaworks} label="JadaWorks" />
         </div>
 
+        <SectionDivider />
+
         {/* Work Section */}
         <div>
-          <h3 className="text-sm font-medium text-zinc-300 mb-3 flex items-center gap-1.5">
+          <h3 className="text-base font-medium text-zinc-300 mb-3 flex items-center gap-1.5">
             <i className="bi bi-briefcase text-blue-400" />
             What people say about my <span className="text-blue-400">work</span>
           </h3>

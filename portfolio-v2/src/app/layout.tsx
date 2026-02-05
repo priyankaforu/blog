@@ -15,8 +15,39 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Priyanka Pudi | Portfolio",
-  description: "An Electrical Engineer, Mastering Computers",
+  title: "Priyanka Pudi | Freelancer, Builder, Problem Solver, Your Next Best Hire",
+  description: "I ship products in hours, not months. End-to-end solutions, any tech stack. Got chaos? I fix it. From bug nightmares to broken systems — I'm here to help you build what matters.",
+  keywords: ["developer", "full-stack", "product builder", "freelancer", "web development", "software engineer", "hire developer"],
+  authors: [{ name: "Priyanka Pudi" }],
+  creator: "Priyanka Pudi",
+  metadataBase: new URL("https://priyankapudi.com"),
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://priyankapudi.com",
+    siteName: "Priyanka Pudi",
+    title: "Priyanka Pudi | Freelancer, Builder, Problem Solver, Your Next Best Hire",
+    description: "I ship products in hours, not months. End-to-end solutions, any tech stack. Got chaos? I fix it. From bug nightmares to broken systems — I'm here to help you build what matters.",
+    images: [
+      {
+        url: "/profile.png",
+        width: 800,
+        height: 800,
+        alt: "Priyanka Pudi - Developer & Product Builder",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Priyanka Pudi | Freelancer, Builder, Problem Solver, Your Next Best Hire",
+    description: "I ship products in hours, not months. End-to-end solutions, any tech stack. Got chaos? I fix it.",
+    creator: "@priyankapudi",
+    images: ["/profile.png"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({
