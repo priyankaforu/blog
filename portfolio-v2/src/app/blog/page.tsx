@@ -78,8 +78,44 @@ export default async function BlogPage() {
         </h1>
       </div>
 
-      <div className="flex items-center justify-center py-20">
-        <p className="text-zinc-500 text-lg">Coming soon...</p>
+      <div className="space-y-6">
+        {posts.map((post: Post) => (
+          <Link
+            key={post._id}
+            href={`/blog/${post.slug.current}`}
+            className="block group"
+          >
+            <article className="border-b border-zinc-800 pb-6">
+              <div className="flex items-start justify-between gap-4">
+                <div className="flex-1">
+                  <h2 className="text-lg font-medium group-hover:text-blue-400 transition-colors">
+                    {post.title}
+                  </h2>
+                  {post.excerpt && (
+                    <p className="text-zinc-500 text-sm mt-1 line-clamp-2">
+                      {post.excerpt}
+                    </p>
+                  )}
+                  {post.tags && post.tags.length > 0 && (
+                    <div className="flex gap-2 mt-2">
+                      {post.tags.map((tag: string) => (
+                        <span
+                          key={tag}
+                          className="text-xs px-2 py-0.5 rounded bg-zinc-800 text-zinc-400"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  )}
+                </div>
+                <time className="text-sm text-zinc-500 whitespace-nowrap">
+                  {formatDate(post.publishedAt)}
+                </time>
+              </div>
+            </article>
+          </Link>
+        ))}
       </div>
     </main>
   )
