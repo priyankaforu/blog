@@ -2,6 +2,7 @@ import Link from "next/link"
 import "bootstrap-icons/font/bootstrap-icons.css"
 import { client, queries } from "@/lib/sanity"
 import { notFound } from "next/navigation"
+import { PortableText } from "@portabletext/react"
 
 interface Props {
   params: Promise<{ slug: string }>
@@ -68,12 +69,7 @@ export default async function BlogPost({ params }: Props) {
         {/* Render Sanity portable text or fallback */}
         <div className="prose prose-zinc dark:prose-invert max-w-none">
           {post.body ? (
-            <div>
-              {/* TODO: Add @portabletext/react for rich text rendering */}
-              <p className="text-zinc-600 dark:text-zinc-400">
-                Content will be rendered here from Sanity CMS.
-              </p>
-            </div>
+            <PortableText value={post.body} />
           ) : (
             <p className="text-zinc-600 dark:text-zinc-400">
               {post.excerpt || "No content available."}
