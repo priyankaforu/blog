@@ -60,7 +60,7 @@ function formatDate(dateString: string) {
 }
 
 export function Blog({ posts = [] }: BlogProps) {
-  const displayPosts = posts.length > 0 ? posts : fallbackPosts
+  const displayPosts = posts.length > 0 ? posts.slice(0, 3) : fallbackPosts.slice(0, 3)
   
   return (
     <section className="px-6 py-4 max-w-3xl mx-auto">
@@ -92,10 +92,36 @@ export function Blog({ posts = [] }: BlogProps) {
         </a>
       </div>
 
-      {/* Coming Soon */}
-      <div className="flex items-center justify-center py-12">
-        <p className="text-zinc-500 text-sm">Coming soon...</p>
+      {/* Recent Posts */}
+      <div className="space-y-3 mb-4">
+        {displayPosts.map((post) => (
+          <Link
+            key={post._id}
+            href={`/blog/${post.slug.current}`}
+            className="block group"
+          >
+            <div className="flex items-center justify-between gap-4 py-2 border-b border-zinc-800/50">
+              <div className="flex-1 min-w-0">
+                <h3 className="text-sm font-medium text-zinc-200 group-hover:text-blue-400 transition-colors truncate">
+                  {post.title}
+                </h3>
+              </div>
+              <time className="text-xs text-zinc-500 whitespace-nowrap">
+                {formatDate(post.publishedAt)}
+              </time>
+            </div>
+          </Link>
+        ))}
       </div>
+
+      {/* View all posts link */}
+      <Link
+        href="/blog"
+        className="inline-flex items-center gap-1 text-xs text-zinc-500 hover:text-blue-400 transition-colors"
+      >
+        View all posts
+        <i className="bi bi-arrow-right" />
+      </Link>
     </section>
   )
 }
