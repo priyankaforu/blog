@@ -44,6 +44,10 @@ export const metadata: Metadata = {
     creator: "@priyankapudi",
     images: ["https://priyankapudi.com/profile.png"],
   },
+  icons: {
+    icon: "/favicon.png",
+    apple: "/favicon.png",
+  },
   robots: {
     index: true,
     follow: true,
@@ -58,6 +62,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark" style={{ colorScheme: 'dark' }} suppressHydrationWarning>
       <head>
+        <link rel="icon" href="/favicon.png" type="image/png" />
         <link 
           rel="stylesheet" 
           href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
@@ -65,6 +70,24 @@ export default function RootLayout({
         <link
           href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&display=swap"
           rel="stylesheet"
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Person",
+              name: "Priyanka Pudi",
+              url: "https://priyankapudi.com",
+              image: "https://priyankapudi.com/profile.png",
+              jobTitle: "Freelancer & Full-Stack Developer",
+              description:
+                "Priyanka Pudi is a freelancer, builder, and problem solver who ships products end-to-end.",
+              sameAs: [
+                "https://twitter.com/priyankapudi",
+              ],
+            }),
+          }}
         />
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`} suppressHydrationWarning>
