@@ -1,6 +1,7 @@
 import Link from "next/link"
+import Image from "next/image"
 import "bootstrap-icons/font/bootstrap-icons.css"
-import { client, queries } from "@/lib/sanity"
+import { client, queries, urlFor } from "@/lib/sanity"
 
 interface Post {
   _id: string
@@ -9,6 +10,7 @@ interface Post {
   excerpt?: string
   publishedAt: string
   tags?: string[]
+  coverImage?: { _type: string; asset: { _ref: string; _type: string } }
 }
 
 // Fallback posts
@@ -109,10 +111,25 @@ export default async function BlogPage() {
                     </div>
                   )}
                 </div>
-                <time className="text-sm text-zinc-500 whitespace-nowrap">
+                {post.coverImage ? (
+                  <Image
+                    src={urlFor(post.coverImage).width(120).height(80).url()}
+                    alt={post.title}
+                    width={120}
+                    height={80}
+                    className="rounded-md object-cover shrink-0"
+                  />
+                ) : (
+                  <time className="text-sm text-zinc-500 whitespace-nowrap">
+                    {formatDate(post.publishedAt)}
+                  </time>
+                )}
+              </div>
+              {post.coverImage && (
+                <time className="text-sm text-zinc-500 mt-2 block">
                   {formatDate(post.publishedAt)}
                 </time>
-              </div>
+              )}
             </article>
           </Link>
         ))}

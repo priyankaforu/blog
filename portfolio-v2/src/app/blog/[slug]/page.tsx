@@ -1,6 +1,7 @@
 import Link from "next/link"
+import Image from "next/image"
 import "bootstrap-icons/font/bootstrap-icons.css"
-import { client, queries } from "@/lib/sanity"
+import { client, queries, urlFor } from "@/lib/sanity"
 import { notFound } from "next/navigation"
 import { PortableText } from "@portabletext/react"
 
@@ -64,6 +65,18 @@ export default async function BlogPost({ params }: Props) {
               </>
             )}
           </div>
+          {post.coverImage && (
+            <div className="mt-6 rounded-lg overflow-hidden">
+              <Image
+                src={urlFor(post.coverImage).width(1200).height(630).url()}
+                alt={post.title}
+                width={1200}
+                height={630}
+                className="w-full h-auto object-cover rounded-lg"
+                priority
+              />
+            </div>
+          )}
         </header>
 
         {/* Render Sanity portable text or fallback */}
