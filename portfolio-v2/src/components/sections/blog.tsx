@@ -1,7 +1,5 @@
 import Link from "next/link"
-import Image from "next/image"
 import "bootstrap-icons/font/bootstrap-icons.css"
-import { urlFor } from "@/lib/sanity"
 
 interface Post {
   _id: string
@@ -9,137 +7,13 @@ interface Post {
   slug: { current: string }
   excerpt?: string
   publishedAt: string
-  coverImage?: {
-    _type: string
-    asset: {
-      _ref: string
-      _type: string
-    }
-  }
   tags?: string[]
 }
 
-function Blog({ posts = [] }: BlogProps) {
-  const displayPosts = posts.length > 0 ? posts : fallbackPosts
-
-  const techTags = ["tech", "software", "technology", "computers"]
-  const techPosts = displayPosts.filter((post) =>
-    post.tags?.some((tag) => techTags.includes(tag.toLowerCase()))
-  )
-  const personalPosts = displayPosts.filter(
-    (post) => !post.tags?.some((tag) => techTags.includes(tag.toLowerCase()))
-  )
-
-  return (
-    <section className="px-6 py-4 max-w-3xl mx-auto">
-      <div className="border-t border-zinc-800 pt-4 mb-4">
-        <p className="text-zinc-500 text-sm mb-4">
-          I love to <span className="font-medium text-zinc-100">write down my thoughts</span> here
-        </p>
-      </div>
-
-      {/* Tiny buttons for Medium and Substack */}
-      <div className="flex gap-2 mb-5">
-        <a
-          href="https://medium.com/@priyankapudi4u"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center justify-center gap-1.5 w-24 py-1.5 text-xs rounded-md bg-zinc-800/60 border border-zinc-700 hover:border-blue-500 text-zinc-300 hover:text-blue-400 transition-all"
-        >
-          <i className="bi bi-medium" />
-          Medium
-        </a>
-        <a
-          href="https://substack.com/@priyankapudi"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center justify-center gap-1.5 w-24 py-1.5 text-xs rounded-md bg-zinc-800/60 border border-zinc-700 hover:border-blue-500 text-zinc-300 hover:text-blue-400 transition-all"
-        >
-          <i className="bi bi-substack" />
-          Substack
-        </a>
-      </div>
-
-      {/* Two columns: Tech & Personal */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 mb-4">
-        {/* Tech column */}
-        <div>
-          <div className="flex items-center gap-2 mb-3">
-            <i className="bi bi-code-slash text-sm text-blue-400" />
-            <h3 className="text-xs font-semibold uppercase tracking-wider text-zinc-500">
-              Tech
-            </h3>
-          </div>
-          <div className="space-y-0">
-            {techPosts.length > 0 ? (
-              techPosts.slice(0, 4).map((post) => (
-                <Link
-                  key={post._id}
-                  href={`/blog/${post.slug.current}`}
-                  className="block group"
-                >
-                  <div className="flex items-center justify-between gap-3 py-2.5 border-b border-zinc-800/50">
-                    <h3 className="text-sm font-medium text-zinc-200 group-hover:text-blue-400 transition-colors truncate flex-1 min-w-0">
-                      {post.title}
-                    </h3>
-                    <time className="text-xs text-zinc-600 whitespace-nowrap">
-                      {formatDate(post.publishedAt)}
-                    </time>
-                  </div>
-                </Link>
-              ))
-            ) : (
-              <p className="text-xs text-zinc-600 py-2">No tech posts yet</p>
-            )}
-          </div>
-        </div>
-
-        {/* Personal column */}
-        <div>
-          <div className="flex items-center gap-2 mb-3">
-            <i className="bi bi-pen text-sm text-blue-400" />
-            <h3 className="text-xs font-semibold uppercase tracking-wider text-zinc-500">
-              Personal
-            </h3>
-          </div>
-          <div className="space-y-0">
-            {personalPosts.length > 0 ? (
-              personalPosts.slice(0, 4).map((post) => (
-                <Link
-                  key={post._id}
-                  href={`/blog/${post.slug.current}`}
-                  className="block group"
-                >
-                  <div className="flex items-center justify-between gap-3 py-2.5 border-b border-zinc-800/50">
-                    <h3 className="text-sm font-medium text-zinc-200 group-hover:text-blue-400 transition-colors truncate flex-1 min-w-0">
-                      {post.title}
-                    </h3>
-                    <time className="text-xs text-zinc-600 whitespace-nowrap">
-                      {formatDate(post.publishedAt)}
-                    </time>
-                  </div>
-                </Link>
-              ))
-            ) : (
-              <p className="text-xs text-zinc-600 py-2">No personal posts yet</p>
-            )}
-          </div>
-        </div>
-      </div>
-
-      {/* View all posts link */}
-      <Link
-        href="/blog"
-        className="inline-flex items-center gap-1 text-xs text-zinc-500 hover:text-blue-400 transition-colors"
-      >
-        View all posts
-        <i className="bi bi-arrow-right" />
-      </Link>
-    </section>
-  )
+interface BlogProps {
+  posts?: Post[]
 }
 
-// Fallback posts to show when Sanity is empty
 const fallbackPosts: Post[] = [
   {
     _id: "1",
@@ -175,9 +49,18 @@ function formatDate(dateString: string) {
   })
 }
 
+const TECH_TAGS = ["tech", "software", "technology", "computers"]
+
 export function Blog({ posts = [] }: BlogProps) {
-  const displayPosts = posts.length > 0 ? posts.slice(0, 3) : fallbackPosts.slice(0, 3)
-  
+  const displayPosts = posts.length > 0 ? posts : fallbackPosts
+
+  const techPosts = displayPosts.filter((post) =>
+    post.tags?.some((tag) => TECH_TAGS.includes(tag.toLowerCase()))
+  )
+  const personalPosts = displayPosts.filter(
+    (post) => !post.tags?.some((tag) => TECH_TAGS.includes(tag.toLowerCase()))
+  )
+
   return (
     <section className="px-6 py-4 max-w-3xl mx-auto">
       <div className="border-t border-zinc-800 pt-4 mb-4">
@@ -186,8 +69,7 @@ export function Blog({ posts = [] }: BlogProps) {
         </p>
       </div>
 
-      {/* Tiny buttons for Medium and Substack */}
-      <div className="flex gap-2 mb-4">
+      <div className="flex gap-2 mb-5">
         <a
           href="https://medium.com/@priyankapudi4u"
           target="_blank"
@@ -208,29 +90,58 @@ export function Blog({ posts = [] }: BlogProps) {
         </a>
       </div>
 
-      {/* Recent Posts */}
-      <div className="space-y-3 mb-4">
-        {displayPosts.map((post) => (
-          <Link
-            key={post._id}
-            href={`/blog/${post.slug.current}`}
-            className="block group"
-          >
-            <div className="flex items-center justify-between gap-4 py-2 border-b border-zinc-800/50">
-              <div className="flex-1 min-w-0">
-                <h3 className="text-sm font-medium text-zinc-200 group-hover:text-blue-400 transition-colors truncate">
-                  {post.title}
-                </h3>
-              </div>
-              <time className="text-xs text-zinc-500 whitespace-nowrap">
-                {formatDate(post.publishedAt)}
-              </time>
-            </div>
-          </Link>
-        ))}
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 mb-4">
+        <div>
+          <div className="flex items-center gap-2 mb-3">
+            <i className="bi bi-code-slash text-sm text-blue-400" />
+            <h3 className="text-xs font-semibold uppercase tracking-wider text-zinc-500">Tech</h3>
+          </div>
+          <div className="space-y-0">
+            {techPosts.length > 0 ? (
+              techPosts.slice(0, 4).map((post) => (
+                <Link key={post._id} href={`/blog/${post.slug.current}`} className="block group">
+                  <div className="flex items-center justify-between gap-3 py-2.5 border-b border-zinc-800/50">
+                    <h3 className="text-sm font-medium text-zinc-200 group-hover:text-blue-400 transition-colors truncate flex-1 min-w-0">
+                      {post.title}
+                    </h3>
+                    <time className="text-xs text-zinc-600 whitespace-nowrap">
+                      {formatDate(post.publishedAt)}
+                    </time>
+                  </div>
+                </Link>
+              ))
+            ) : (
+              <p className="text-xs text-zinc-600 py-2">No tech posts yet</p>
+            )}
+          </div>
+        </div>
+
+        <div>
+          <div className="flex items-center gap-2 mb-3">
+            <i className="bi bi-pen text-sm text-blue-400" />
+            <h3 className="text-xs font-semibold uppercase tracking-wider text-zinc-500">Personal</h3>
+          </div>
+          <div className="space-y-0">
+            {personalPosts.length > 0 ? (
+              personalPosts.slice(0, 4).map((post) => (
+                <Link key={post._id} href={`/blog/${post.slug.current}`} className="block group">
+                  <div className="flex items-center justify-between gap-3 py-2.5 border-b border-zinc-800/50">
+                    <h3 className="text-sm font-medium text-zinc-200 group-hover:text-blue-400 transition-colors truncate flex-1 min-w-0">
+                      {post.title}
+                    </h3>
+                    <time className="text-xs text-zinc-600 whitespace-nowrap">
+                      {formatDate(post.publishedAt)}
+                    </time>
+                  </div>
+                </Link>
+              ))
+            ) : (
+              <p className="text-xs text-zinc-600 py-2">No personal posts yet</p>
+            )}
+          </div>
+        </div>
       </div>
 
-      {/* View all posts link */}
       <Link
         href="/blog"
         className="inline-flex items-center gap-1 text-xs text-zinc-500 hover:text-blue-400 transition-colors"
