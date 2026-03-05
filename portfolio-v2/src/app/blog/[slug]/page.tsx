@@ -82,7 +82,27 @@ export default async function BlogPost({ params }: Props) {
         {/* Render Sanity portable text or fallback */}
         <div className="prose prose-zinc dark:prose-invert max-w-none">
           {post.body ? (
-            <PortableText value={post.body} />
+            <PortableText
+              value={post.body}
+              components={{
+                types: {
+                  image: ({ value }: { value: any }) => {
+                    if (!value?.asset) return null
+                    return (
+                      <div className="my-6 rounded-lg overflow-hidden">
+                        <Image
+                          src={urlFor(value).width(1200).url()}
+                          alt={value.alt || "Blog image"}
+                          width={1200}
+                          height={675}
+                          className="w-full h-auto object-cover rounded-lg"
+                        />
+                      </div>
+                    )
+                  },
+                },
+              }}
+            />
           ) : (
             <p className="text-zinc-600 dark:text-zinc-400">
               {post.excerpt || "No content available."}
