@@ -120,17 +120,19 @@ export function Hero({ profile }: HeroProps) {
   }
 
   return (
-    <section className="flex flex-col justify-start px-6 pt-6 pb-6 max-w-3xl mx-auto">
-      {/* Location and Time badge */}
-      <div className="flex items-center justify-between text-sm mb-8 w-full">
-        <div className="text-sm font-mono text-zinc-400 dark:text-zinc-400">
-          IN {time}
+    <>
+      {/* Location and Time — full width, pinned to edges */}
+      <div className="flex items-center justify-between text-sm px-4 sm:px-6 pt-4 pb-6 w-full" style={{ fontFamily: "'Onest', sans-serif" }}>
+        <div className="text-zinc-100">
+          IN&nbsp;&nbsp;{time}
         </div>
-        <div className="flex items-center gap-2 text-zinc-400 dark:text-zinc-400">
+        <div className="flex items-center gap-1.5 text-zinc-100">
           <i className="bi bi-geo-alt text-xs" />
           <span>{data.location}</span>
         </div>
       </div>
+
+    <section className="flex flex-col justify-start px-6 pt-2 pb-6 max-w-3xl mx-auto">
 
       {/* Profile section */}
       <div className="flex items-center gap-4 mb-4">
@@ -148,7 +150,7 @@ export function Hero({ profile }: HeroProps) {
           />
         </div>
         <div className="flex-1">
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 flex-wrap">
             <h1 className="text-lg sm:text-xl font-bold tracking-wide">
               {data.name}
             </h1>
@@ -162,6 +164,15 @@ export function Hero({ profile }: HeroProps) {
               </span>
               {linkCopied && <span className="text-xs text-green-400">Link copied!</span>}
             </button>
+            <a
+              href="https://drive.google.com/file/d/1U2yej9hKHxyfYXaNG1_V6p9pBRBA2Ejr/view?usp=sharing"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-4 py-1.5 text-xs sm:text-sm rounded-full bg-zinc-800/80 border border-zinc-700 hover:border-blue-500 text-zinc-300 hover:text-blue-400 transition-all ml-auto"
+            >
+              <i className="bi bi-download text-xs" />
+              Download CV
+            </a>
           </div>
           {data.socials?.[1] && (
             <a 
@@ -238,17 +249,6 @@ export function Hero({ profile }: HeroProps) {
           <i className="bi bi-calendar-check text-xs sm:text-sm" />
           Book a call to discuss your ideas
         </a>
-        {data.resumeUrl && (
-          <a
-            href={data.resumeUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-3.5 py-1.5 text-xs rounded-full bg-zinc-800/60 border border-zinc-700 hover:border-blue-500 transition-all"
-          >
-            <i className="bi bi-download text-xs" />
-            Download CV
-          </a>
-        )}
       </div>
 
       {/* Social Links */}
@@ -325,5 +325,6 @@ export function Hero({ profile }: HeroProps) {
         </div>
       </div>
     </section>
+    </>
   )
 }
