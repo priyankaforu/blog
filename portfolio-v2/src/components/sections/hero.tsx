@@ -168,7 +168,7 @@ export function Hero({ profile }: HeroProps) {
               href="https://drive.google.com/file/d/1U2yej9hKHxyfYXaNG1_V6p9pBRBA2Ejr/view?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-4 py-1.5 text-xs sm:text-sm rounded-full bg-zinc-800/80 border border-zinc-700 hover:border-blue-500 text-zinc-300 hover:text-blue-400 transition-all ml-auto"
+              className="hidden sm:inline-flex items-center gap-2 px-4 py-1.5 text-xs sm:text-sm rounded-full bg-zinc-800/80 border border-zinc-700 hover:border-blue-500 text-zinc-300 hover:text-blue-400 transition-all ml-auto"
             >
               <i className="bi bi-download text-xs" />
               Download CV
@@ -230,6 +230,15 @@ export function Hero({ profile }: HeroProps) {
 
       {/* CTA Buttons */}
       <div className="flex flex-wrap gap-2 mb-3">
+        <a
+          href="https://drive.google.com/file/d/1U2yej9hKHxyfYXaNG1_V6p9pBRBA2Ejr/view?usp=sharing"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="sm:hidden inline-flex items-center gap-2 px-3 py-2 text-xs rounded-full bg-zinc-800/60 border border-zinc-700 hover:border-blue-500 text-zinc-300 hover:text-blue-400 transition-all"
+        >
+          <i className="bi bi-download text-xs" />
+          Download CV
+        </a>
         <a
           href="https://x.com/priyankapudi"
           target="_blank"
