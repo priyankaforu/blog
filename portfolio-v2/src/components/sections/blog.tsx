@@ -63,9 +63,9 @@ export function Blog({ posts = [] }: BlogProps) {
 
   return (
     <section className="px-6 py-4 max-w-3xl mx-auto">
-      <div className="border-t border-zinc-800 pt-4 mb-4">
+      <div className="border-t border-[var(--border)] pt-4 mb-4">
         <p className="text-zinc-500 text-sm mb-4">
-          I love to <span className="font-medium text-zinc-100">write down my thoughts</span> here
+          I love to <span className="font-medium" style={{ color: 'var(--foreground)' }}>write down my thoughts</span> here
         </p>
       </div>
 
@@ -74,7 +74,7 @@ export function Blog({ posts = [] }: BlogProps) {
           href="https://medium.com/@priyankapudi4u"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center justify-center gap-1.5 w-24 py-1.5 text-xs rounded-md bg-zinc-800/60 border border-zinc-700 hover:border-blue-500 text-zinc-300 hover:text-blue-400 transition-all"
+          className="inline-flex items-center justify-center gap-1.5 w-24 py-1.5 text-xs rounded-md bg-[var(--muted)] border border-[var(--border)] hover:border-blue-500 text-[var(--muted-foreground)] hover:text-[var(--accent)] transition-all"
         >
           <i className="bi bi-medium" />
           Medium
@@ -83,7 +83,7 @@ export function Blog({ posts = [] }: BlogProps) {
           href="https://substack.com/@priyankapudi"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center justify-center gap-1.5 w-24 py-1.5 text-xs rounded-md bg-zinc-800/60 border border-zinc-700 hover:border-blue-500 text-zinc-300 hover:text-blue-400 transition-all"
+          className="inline-flex items-center justify-center gap-1.5 w-24 py-1.5 text-xs rounded-md bg-[var(--muted)] border border-[var(--border)] hover:border-blue-500 text-[var(--muted-foreground)] hover:text-[var(--accent)] transition-all"
         >
           <i className="bi bi-substack" />
           Substack
@@ -93,50 +93,50 @@ export function Blog({ posts = [] }: BlogProps) {
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 mb-4">
         <div>
           <div className="flex items-center gap-2 mb-3">
-            <i className="bi bi-code-slash text-sm text-blue-400" />
+            <i className="bi bi-code-slash text-sm" style={{ color: 'var(--accent)' }} />
             <h3 className="text-xs font-semibold uppercase tracking-wider text-zinc-500">Tech</h3>
           </div>
           <div className="space-y-0">
             {techPosts.length > 0 ? (
               techPosts.slice(0, 4).map((post) => (
                 <Link key={post._id} href={`/blog/${post.slug.current}`} className="block group">
-                  <div className="flex items-center justify-between gap-3 py-2.5 border-b border-zinc-800/50">
-                    <h3 className="text-sm font-medium text-zinc-200 group-hover:text-blue-400 transition-colors truncate flex-1 min-w-0">
+                  <div className="flex items-center justify-between gap-3 py-2.5 border-b border-[var(--border)]">
+                    <h3 className="text-sm font-medium group-hover:text-[var(--accent)] transition-colors truncate flex-1 min-w-0" style={{ color: 'var(--foreground)' }}>
                       {post.title}
                     </h3>
-                    <time className="text-xs text-zinc-600 whitespace-nowrap">
+                    <time className="text-xs text-[var(--muted-foreground)] whitespace-nowrap">
                       {formatDate(post.publishedAt)}
                     </time>
                   </div>
                 </Link>
               ))
             ) : (
-              <p className="text-xs text-zinc-600 py-2">No tech posts yet</p>
+              <p className="text-xs text-[var(--muted-foreground)] py-2">No tech posts yet</p>
             )}
           </div>
         </div>
 
         <div>
           <div className="flex items-center gap-2 mb-3">
-            <i className="bi bi-pen text-sm text-blue-400" />
+            <i className="bi bi-pen text-sm" style={{ color: 'var(--accent)' }} />
             <h3 className="text-xs font-semibold uppercase tracking-wider text-zinc-500">Personal</h3>
           </div>
           <div className="space-y-0">
             {personalPosts.length > 0 ? (
               personalPosts.slice(0, 4).map((post) => (
                 <Link key={post._id} href={`/blog/${post.slug.current}`} className="block group">
-                  <div className="flex items-center justify-between gap-3 py-2.5 border-b border-zinc-800/50">
-                    <h3 className="text-sm font-medium text-zinc-200 group-hover:text-blue-400 transition-colors truncate flex-1 min-w-0">
+                  <div className="flex items-center justify-between gap-3 py-2.5 border-b border-[var(--border)]">
+                    <h3 className="text-sm font-medium group-hover:text-[var(--accent)] transition-colors truncate flex-1 min-w-0" style={{ color: 'var(--foreground)' }}>
                       {post.title}
                     </h3>
-                    <time className="text-xs text-zinc-600 whitespace-nowrap">
+                    <time className="text-xs text-[var(--muted-foreground)] whitespace-nowrap">
                       {formatDate(post.publishedAt)}
                     </time>
                   </div>
                 </Link>
               ))
             ) : (
-              <p className="text-xs text-zinc-600 py-2">No personal posts yet</p>
+              <p className="text-xs text-[var(--muted-foreground)] py-2">No personal posts yet</p>
             )}
           </div>
         </div>
@@ -144,7 +144,7 @@ export function Blog({ posts = [] }: BlogProps) {
 
       <Link
         href="/blog"
-        className="inline-flex items-center gap-1 text-xs text-zinc-500 hover:text-blue-400 transition-colors"
+        className="inline-flex items-center gap-1.5 text-sm font-medium hover:text-[var(--accent)] transition-colors" style={{ color: 'var(--foreground)' }}
       >
         View all posts
         <i className="bi bi-arrow-right" />

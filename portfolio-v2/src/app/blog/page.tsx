@@ -62,16 +62,9 @@ export default async function BlogPage() {
   const posts = await getPosts()
 
   return (
-    <main className="min-h-screen px-6 py-12 max-w-3xl mx-auto">
-      <Link
-        href="/"
-        className="inline-flex items-center gap-2 text-sm text-zinc-500 hover:text-blue-400 transition-colors mb-6"
-      >
-        <i className="bi bi-arrow-left" />
-        Back to home
-      </Link>
+    <main className="min-h-screen px-6 py-12 max-w-3xl mx-auto mt-12">
 
-      <div className="border-t border-zinc-800 pt-4 mb-6">
+      <div className="border-t border-[var(--border)] pt-4 mb-6">
         <h1 className="text-xl font-bold tracking-tight font-mono">
           All Posts{" "}
           <span className="text-zinc-500 text-sm font-normal font-sans">
@@ -87,10 +80,10 @@ export default async function BlogPage() {
             href={`/blog/${post.slug.current}`}
             className="block group"
           >
-            <article className="border-b border-zinc-800 pb-6">
+            <article className="border-b border-[var(--border)] pb-6">
               <div className="flex items-start justify-between gap-4">
                 <div className="flex-1">
-                  <h2 className="text-lg font-medium group-hover:text-blue-400 transition-colors">
+                  <h2 className="text-lg font-medium group-hover:text-[var(--accent)] transition-colors">
                     {post.title}
                   </h2>
                   {post.excerpt && (
@@ -103,7 +96,7 @@ export default async function BlogPage() {
                       {post.tags.map((tag: string) => (
                         <span
                           key={tag}
-                          className="text-xs px-2 py-0.5 rounded bg-zinc-800 text-zinc-400"
+                          className="text-xs px-2 py-0.5 rounded bg-[var(--muted)] text-[var(--muted-foreground)]"
                         >
                           {tag}
                         </span>

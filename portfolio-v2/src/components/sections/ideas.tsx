@@ -30,7 +30,7 @@ function TweetCard({ id }: { id: string }) {
 export function Ideas() {
   return (
     <section className="px-6 py-4 max-w-3xl mx-auto">
-      <div className="border-t border-zinc-800 pt-4 mb-4">
+      <div className="border-t border-[var(--border)] pt-4 mb-4">
         <h2 className="text-xl font-bold tracking-tight mb-1 font-mono">
           Ideas{" "}
           <span className="text-zinc-500 text-sm font-normal font-sans">

@@ -34,29 +34,29 @@ export default function Loading() {
   }, [])
 
   return (
-    <div className="fixed inset-0 bg-zinc-950 flex items-center justify-center z-50">
+    <div className="fixed inset-0 flex items-center justify-center z-50" style={{ backgroundColor: 'var(--background)' }}>
       <div className="space-y-6 px-6">
         {/* Achievement display */}
         <div className="flex items-center gap-2">
           <span className="text-lg">{achievements[currentAchievement].emoji}</span>
-          <p className="text-lg text-zinc-200 font-medium transition-opacity duration-300">
+          <p className="text-lg font-medium transition-opacity duration-300" style={{ color: 'var(--foreground)' }}>
             {achievements[currentAchievement].text}
           </p>
         </div>
 
         {/* Progress bar */}
         <div className="space-y-2">
-          <div className="w-full h-1 bg-zinc-800 rounded-full overflow-hidden">
+          <div className="w-full h-1 rounded-full overflow-hidden" style={{ backgroundColor: 'var(--muted)' }}>
             <div 
-              className="h-full bg-blue-500 rounded-full transition-all duration-200 ease-out"
-              style={{ width: `${progress}%` }}
+              className="h-full rounded-full transition-all duration-200 ease-out" 
+              style={{ width: `${progress}%`, backgroundColor: 'var(--accent)' }}
             />
           </div>
           <div className="flex items-center justify-between">
-            <p className="text-xs text-zinc-500">
+            <p className="text-xs" style={{ color: 'var(--muted-foreground)' }}>
               Your best hire in
             </p>
-            <p className="text-xs text-zinc-500 font-mono">
+            <p className="text-xs font-mono" style={{ color: 'var(--muted-foreground)' }}>
               {Math.round(progress)}%
             </p>
           </div>

@@ -37,24 +37,24 @@ interface SkillsProps {
 
 // Icon mapping for skills with colors
 const skillIcons: Record<string, { icon: React.ComponentType<{ className?: string, style?: React.CSSProperties }>, color: string }> = {
-  "JavaScript": { icon: SiJavascript, color: "#F7DF1E" },
+  "JavaScript": { icon: SiJavascript, color: "var(--foreground)" },
   "TypeScript": { icon: SiTypescript, color: "#3178C6" },
   "Python": { icon: SiPython, color: "#3776AB" },
   "HTML": { icon: SiHtml5, color: "#E34F26" },
   "CSS": { icon: SiCss3, color: "#1572B6" },
   "React": { icon: SiReact, color: "#61DAFB" },
-  "Next.js": { icon: SiNextdotjs, color: "#ffffff" },
+  "Next.js": { icon: SiNextdotjs, color: "var(--foreground)" },
   "TailwindCSS": { icon: SiTailwindcss, color: "#06B6D4" },
   "Node.js": { icon: SiNodedotjs, color: "#339933" },
   "FastAPI": { icon: SiFastapi, color: "#009688" },
-  "Express": { icon: SiExpress, color: "#ffffff" },
+  "Express": { icon: SiExpress, color: "var(--foreground)" },
   "MongoDB": { icon: SiMongodb, color: "#47A248" },
   "PostgreSQL": { icon: SiPostgresql, color: "#4169E1" },
   "Supabase": { icon: SiSupabase, color: "#3ECF8E" },
   "Git": { icon: SiGit, color: "#F05032" },
-  "GitHub": { icon: SiGithub, color: "#ffffff" },
+  "GitHub": { icon: SiGithub, color: "var(--foreground)" },
   "VS Code": { icon: VscCode, color: "#007ACC" },
-  "Vercel": { icon: SiVercel, color: "#ffffff" },
+  "Vercel": { icon: SiVercel, color: "var(--foreground)" },
   "Figma": { icon: SiFigma, color: "#F24E1E" },
 }
 
@@ -116,14 +116,14 @@ export function Skills({ skills }: SkillsProps) {
 
   return (
     <section className="px-6 py-4 max-w-3xl mx-auto">
-      <div className="border-t border-zinc-800 pt-4 mb-4">
+      <div className="border-t border-[var(--border)] pt-4 mb-4">
         <h2 className="text-xl font-bold tracking-tight mb-1 font-mono">
           Skills{" "}
-          <span className="text-zinc-500 text-sm font-normal font-sans">
+          <span className="text-[var(--muted-foreground)] text-sm font-normal font-sans">
             Which I use/know
           </span>
         </h2>
-        <p className="text-sm text-zinc-400">
+        <p className="text-sm text-[var(--muted-foreground)]">
           These are the technologies I&apos;ve learned and worked with. This list is constantly evolving as I continue to learn and grow.
         </p>
       </div>
@@ -141,7 +141,7 @@ export function Skills({ skills }: SkillsProps) {
                 return (
                   <span
                     key={skill.name}
-                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs bg-zinc-800/60 border border-zinc-700 hover:border-blue-500 transition-all cursor-default"
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs bg-[var(--muted)] border border-[var(--border)] hover:border-blue-500 transition-all cursor-default"
                   >
                     {IconComponent && (
                       <IconComponent 

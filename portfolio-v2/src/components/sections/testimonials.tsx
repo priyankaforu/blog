@@ -11,7 +11,7 @@ const testimonials = {
     jadaworks: ["2001416808104948146"]
   },
   work: {
-    postmaker: ["1990074123402314091", "1990094837605859661", "1990094930723893413", "1990079307893416186", "1990167668226175289"],
+    postmaker: ["1990074123402314091", "1990094837605859661", "1990407397622337685", "1990079307893416186", "1990167668226175289"],
     jadaworks: ["1997820506041720925", "2001416576139169992"]
   }
 }
@@ -48,14 +48,14 @@ function TweetRow({ ids, label }: { ids: string[], label: string }) {
 
 function SectionDivider() {
   return (
-    <div className="border-t border-dashed border-zinc-700 my-6" />
+    <div className="border-t border-dashed border-[var(--border)] my-6" />
   )
 }
 
 export function Testimonials() {
   return (
     <section className="px-6 py-4 max-w-3xl mx-auto">
-      <div className="border-t border-zinc-800 pt-4 mb-4">
+      <div className="border-t border-[var(--border)] pt-4 mb-4">
         <h2 className="text-xl font-bold tracking-tight mb-1 font-mono">
           Testimonials
         </h2>
@@ -64,9 +64,9 @@ export function Testimonials() {
       <div className="space-y-6">
         {/* Products Section */}
         <div>
-          <h3 className="text-base font-medium text-zinc-300 mb-3 flex items-center gap-1.5">
-            <i className="bi bi-box text-blue-400" />
-            What people say about my <span className="text-blue-400">products</span>
+          <h3 className="text-base font-medium mb-3 flex items-center gap-1.5" style={{ color: 'var(--foreground)' }}>
+            <i className="bi bi-box" style={{ color: 'var(--accent)' }} />
+            What people say about my <span style={{ color: 'var(--accent)' }}>products</span>
           </h3>
           <TweetRow ids={testimonials.products.doodlenotes} label="DoodleNotes" />
           <TweetRow ids={testimonials.products.postmaker} label="PostMaker" />
@@ -77,9 +77,9 @@ export function Testimonials() {
 
         {/* Work Section */}
         <div>
-          <h3 className="text-base font-medium text-zinc-300 mb-3 flex items-center gap-1.5">
-            <i className="bi bi-briefcase text-blue-400" />
-            What people say about my <span className="text-blue-400">work</span>
+          <h3 className="text-base font-medium mb-3 flex items-center gap-1.5" style={{ color: 'var(--foreground)' }}>
+            <i className="bi bi-briefcase" style={{ color: 'var(--accent)' }} />
+            What people say about my <span style={{ color: 'var(--accent)' }}>work</span>
           </h3>
           <TweetRow ids={testimonials.work.postmaker} label="PostMaker Dev" />
           <TweetRow ids={testimonials.work.jadaworks} label="JadaWorks Dev" />

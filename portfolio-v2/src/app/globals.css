@@ -1,14 +1,22 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
+@custom variant dark (&:where(.dark, .dark *));
 
 :root {
-  --background: #ffffff;
-  --foreground: #0a0a0a;
-  --primary: #3b82f6;
-  --muted: #f4f4f5;
-  --muted-foreground: #71717a;
-  --border: #e4e4e7;
-  --card: #f9fafb;
+  --background: #f5f0e8;
+  --foreground: #1a1a1a;
+  --primary: #1e3a5f;
+  --muted: #ebe5d9;
+  --muted-foreground: #5c564e;
+  --border: #c4baa8;
+  --card: #e2d9c8;
+  --accent: #0047AB;
+  --text-secondary: #3a3530;
+  --badge-text: #ffffff;
+  --badge-bg: rgba(146, 64, 14, 0.9);
+  --badge-border: rgba(146, 64, 14, 0.5);
+  --cv-text: #1a1a1a;
+  --cv-border: #3a3530;
 }
 
 .dark {
@@ -19,6 +27,13 @@
   --muted-foreground: #a1a1aa;
   --border: #2a2a2a;
   --card: #1a1a1a;
+  --accent: #60a5fa;
+  --text-secondary: #d4d4d8;
+  --badge-text: #facc15;
+  --badge-bg: rgba(234, 179, 8, 0.2);
+  --badge-border: rgba(234, 179, 8, 0.3);
+  --cv-text: #d4d4d8;
+  --cv-border: #52525b;
 }
 
 body {
@@ -62,31 +77,31 @@ html {
 }
 
 .blog-post-title {
-  color: #18181b;
+  color: #1a1a1a;
 }
 
 .blog-post-date {
-  color: #71717a;
+  color: #5c564e;
 }
 
 .blog-post-icon {
-  color: #a1a1aa;
+  color: #5c564e;
 }
 
 .blog-post-link:hover {
-  background-color: #3f3f46;
+  background-color: #ebe5d9;
 }
 
 .blog-post-link:hover .blog-post-title {
-  color: #ffffff;
+  color: #1e3a5f;
 }
 
 .blog-post-link:hover .blog-post-date {
-  color: #d4d4d8;
+  color: #3a3530;
 }
 
 .blog-post-link:hover .blog-post-icon {
-  color: #ffffff;
+  color: #1e3a5f;
 }
 
 /* Blog post hover styles - Dark mode */
@@ -120,14 +135,14 @@ html {
 
 /* Skill badge styles - Light mode */
 .skill-badge {
-  background-color: #3f3f46;
-  border-color: #3f3f46;
-  color: #ffffff;
+  background-color: #ebe5d9;
+  border-color: #d6cfc4;
+  color: #1a1a1a;
 }
 
 .skill-badge:hover {
-  background-color: #3b82f6;
-  border-color: #3b82f6;
+  background-color: #1e3a5f;
+  border-color: #1e3a5f;
   color: #ffffff;
 }
 
@@ -146,45 +161,45 @@ html {
 
 /* Blog post card styles (All Posts page) - Light mode */
 .blog-post-card {
-  border-color: #e4e4e7;
+  border-color: #d6cfc4;
   background-color: transparent;
 }
 
 .blog-post-card-title {
-  color: #18181b;
+  color: #1a1a1a;
 }
 
 .blog-post-card-excerpt {
-  color: #52525b;
+  color: #5c564e;
 }
 
 .blog-post-card-date {
-  color: #71717a;
+  color: #5c564e;
 }
 
 .blog-post-card-icon {
-  color: #a1a1aa;
+  color: #5c564e;
 }
 
 .blog-post-card:hover {
-  border-color: #3f3f46;
-  background-color: #3f3f46;
+  border-color: #1e3a5f;
+  background-color: #ebe5d9;
 }
 
 .blog-post-card:hover .blog-post-card-title {
-  color: #ffffff;
+  color: #1e3a5f;
 }
 
 .blog-post-card:hover .blog-post-card-excerpt {
-  color: #d4d4d8;
+  color: #3a3530;
 }
 
 .blog-post-card:hover .blog-post-card-date {
-  color: #d4d4d8;
+  color: #3a3530;
 }
 
 .blog-post-card:hover .blog-post-card-icon {
-  color: #ffffff;
+  color: #1e3a5f;
 }
 
 /* Blog post card styles (All Posts page) - Dark mode */
@@ -229,34 +244,46 @@ html {
   color: #60a5fa;
 }
 
-/* Glassmorphism buttons */
+/* Glassmorphism buttons - Light mode */
 .glass-button {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(235, 229, 217, 0.6);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: 1px solid #d6cfc4;
   border-radius: 9999px;
   transition: all 0.3s ease;
 }
 
 .glass-button:hover {
+  background: #1e3a5f;
+  border-color: #1e3a5f;
+  color: #ffffff;
+}
+
+/* Glassmorphism buttons - Dark mode */
+.dark .glass-button {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.dark .glass-button:hover {
   background: #3b82f6;
   border-color: #3b82f6;
   color: #ffffff;
 }
 
-/* Light mode glass effect */
-:not(.dark) .glass-button {
-  background: rgba(0, 0, 0, 0.03);
-  border: 1px solid rgba(0, 0, 0, 0.1);
+/* Tweet embed styles - Light mode */
+:not(.dark) [data-theme="light"] {
+  --tweet-bg-color: #efe9dd;
+  --tweet-bg-color-hover: #ebe5d9;
+  --tweet-border: 1px solid #d6cfc4;
+  --tweet-color-text-primary: #1a1a1a;
+  --tweet-color-text-secondary: #5c564e;
+  --tweet-color-text-secondary-hover: #3a3530;
+  --tweet-color-blue-primary: #1e3a5f;
+  --tweet-color-blue-secondary: #15294a;
+  --tweet-font-family: inherit;
 }
-
-:not(.dark) .glass-button:hover {
-  background: #3b82f6;
-  border-color: #3b82f6;
-  color: #ffffff;
-}
-
 
 /* Tweet embed styles */
 .tweet-container {
@@ -269,7 +296,7 @@ html {
 }
 
 /* Override react-tweet styles for dark theme */
-[data-theme="light"] {
+.dark [data-theme="light"] {
   --tweet-bg-color: rgba(24, 24, 27, 0.5);
   --tweet-bg-color-hover: rgba(39, 39, 42, 0.5);
   --tweet-border: 1px solid #27272a;
@@ -289,4 +316,25 @@ html {
 }
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
+}
+
+/* Prose overrides for newspaper light theme */
+.prose {
+  --tw-prose-body: var(--foreground) !important;
+  --tw-prose-headings: var(--foreground) !important;
+  --tw-prose-lead: var(--muted-foreground) !important;
+  --tw-prose-links: var(--accent) !important;
+  --tw-prose-bold: var(--foreground) !important;
+  --tw-prose-counters: var(--muted-foreground) !important;
+  --tw-prose-bullets: var(--muted-foreground) !important;
+  --tw-prose-hr: var(--border) !important;
+  --tw-prose-quotes: var(--foreground) !important;
+  --tw-prose-quote-borders: var(--border) !important;
+  --tw-prose-captions: var(--muted-foreground) !important;
+  --tw-prose-code: var(--foreground) !important;
+  --tw-prose-pre-code: #e8e6e3 !important;
+  --tw-prose-pre-bg: #1a1a1a !important;
+  --tw-prose-th-borders: var(--border) !important;
+  --tw-prose-td-borders: var(--border) !important;
+  color: var(--foreground) !important;
 }

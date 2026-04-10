@@ -67,7 +67,7 @@ export function Projects({ projects }: ProjectsProps) {
 
   return (
     <section className="px-6 py-4 max-w-3xl mx-auto">
-      <div className="border-t border-zinc-800 pt-4 mb-6">
+      <div className="border-t border-[var(--border)] pt-4 mb-6">
         <h2 className="text-xl font-bold tracking-tight mb-1 font-mono">
           Projects{" "}
           <span className="text-zinc-500 text-sm font-normal font-sans">
@@ -83,11 +83,11 @@ export function Projects({ projects }: ProjectsProps) {
             href={project.liveUrl || project.githubUrl || "#"}
             target="_blank"
             rel="noopener noreferrer"
-            className="group flex flex-col md:flex-row gap-4 p-4 rounded-xl bg-zinc-900/50 border border-zinc-800 hover:border-blue-500 transition-all relative"
+            className="group flex flex-col md:flex-row gap-4 p-4 rounded-xl bg-[var(--card)] border border-[var(--border)] hover:border-blue-500 transition-all relative"
           >
             {/* Project Screenshot */}
             {project.image && (
-              <div className="relative w-full md:w-52 h-40 md:h-32 rounded-lg overflow-hidden shrink-0 bg-zinc-800">
+              <div className="relative w-full md:w-52 h-40 md:h-32 rounded-lg overflow-hidden shrink-0 bg-[var(--muted)]">
                 <Image
                   src={project.image}
                   alt={project.title}
@@ -100,11 +100,11 @@ export function Projects({ projects }: ProjectsProps) {
             {/* Project Info */}
             <div className="flex-1 flex flex-col justify-center">
               <div className="flex flex-wrap items-center gap-2 md:gap-3 mb-2">
-                <h4 className="text-base md:text-lg font-medium text-zinc-100 group-hover:text-blue-400 transition-colors">
+                <h4 className="text-base md:text-lg font-medium group-hover:text-[var(--accent)] transition-colors" style={{ color: 'var(--foreground)' }}>
                   {project.title}
                 </h4>
                 {project.badge && (
-                  <span className="text-xs px-2 py-0.5 rounded-full bg-yellow-500/20 text-yellow-400 border border-yellow-500/30">
+                  <span className="text-xs px-2 py-0.5 rounded-full" style={{ color: 'var(--badge-text)', backgroundColor: 'var(--badge-bg)', borderWidth: '1px', borderColor: 'var(--badge-border)' }}>
                     {project.badge}
                   </span>
                 )}
@@ -112,7 +112,7 @@ export function Projects({ projects }: ProjectsProps) {
                   <i className="bi bi-github text-lg text-zinc-500" />
                 )}
               </div>
-              <p className="text-sm text-zinc-400 mb-3 line-clamp-2">
+              <p className="text-sm text-[var(--muted-foreground)] mb-3 line-clamp-2">
                 {project.description}
               </p>
               {project.tags && (
@@ -120,7 +120,7 @@ export function Projects({ projects }: ProjectsProps) {
                   {project.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="text-xs px-2 py-0.5 rounded bg-zinc-800 text-zinc-500"
+                      className="text-xs px-2 py-0.5 rounded bg-[var(--muted)] text-[var(--muted-foreground)]"
                     >
                       {tag}
                     </span>
@@ -129,7 +129,7 @@ export function Projects({ projects }: ProjectsProps) {
               )}
             </div>
 
-            <i className="bi bi-arrow-up-right text-xl text-zinc-600 group-hover:text-blue-400 transition-colors shrink-0 absolute top-4 right-4 md:static md:self-start md:mt-1" />
+            <i className="bi bi-arrow-up-right text-xl text-[var(--muted-foreground)] group-hover:text-[var(--accent)] transition-colors shrink-0 absolute top-4 right-4 md:static md:self-start md:mt-1" />
           </a>
         ))}
       </div>

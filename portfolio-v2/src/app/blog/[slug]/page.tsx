@@ -35,10 +35,11 @@ export default async function BlogPost({ params }: Props) {
   }
 
   return (
-    <main className="min-h-screen px-6 py-20 max-w-3xl mx-auto">
+    <main className="min-h-screen px-6 py-20 max-w-3xl mx-auto mt-12">
       <Link
         href="/blog"
-        className="inline-flex items-center gap-2 text-sm text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100 mb-8"
+        className="inline-flex items-center gap-2 text-sm px-4 py-2 rounded-full mb-8 transition-all hover:border-blue-500"
+        style={{ backgroundColor: 'var(--muted)', color: 'var(--foreground)', borderWidth: '1px', borderColor: 'var(--border)' }}
       >
         <i className="bi bi-arrow-left" />
         Back to all posts
@@ -46,7 +47,7 @@ export default async function BlogPost({ params }: Props) {
 
       <article>
         <header className="mb-8">
-          <h1 className="text-4xl font-bold mb-4">{post.title}</h1>
+          <h1 className="text-2xl sm:text-4xl font-bold mb-4">{post.title}</h1>
           <div className="flex items-center gap-3 text-zinc-500">
             <time>{formatDate(post.publishedAt)}</time>
             {post.tags && (
@@ -56,7 +57,7 @@ export default async function BlogPost({ params }: Props) {
                   {post.tags.map((tag: string) => (
                     <span
                       key={tag}
-                      className="text-xs px-2 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800"
+                      className="text-[10px] sm:text-xs px-2 py-0.5 rounded" style={{ backgroundColor: 'var(--muted)', color: 'var(--muted-foreground)', borderWidth: '1px', borderColor: 'var(--border)' }}
                     >
                       {tag}
                     </span>
@@ -80,7 +81,7 @@ export default async function BlogPost({ params }: Props) {
         </header>
 
         {/* Render Sanity portable text or fallback */}
-        <div className="prose prose-zinc dark:prose-invert max-w-none">
+        <div className="prose prose-zinc dark:prose-invert max-w-none" style={{ color: 'var(--foreground)' }}>
           {post.body ? (
             <PortableText
               value={post.body}
@@ -104,7 +105,7 @@ export default async function BlogPost({ params }: Props) {
               }}
             />
           ) : (
-            <p className="text-zinc-600 dark:text-zinc-400">
+            <p className="text-[var(--muted-foreground)]">
               {post.excerpt || "No content available."}
             </p>
           )}
