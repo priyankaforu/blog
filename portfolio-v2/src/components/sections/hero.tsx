@@ -133,9 +133,9 @@ export function Hero({ profile }: HeroProps) {
     <>
       {/* Location and Time — full width, pinned to edges */}
       <div className="flex items-center justify-between text-sm px-4 sm:px-6 pt-4 pb-6 w-full" style={{ fontFamily: "'Onest', sans-serif", color: 'var(--foreground)' }}>
-        <div>
+        <a href="https://www.timeanddate.com/worldclock/converter.html?iso=20260410T00&p1=44" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--accent)] transition-colors">
           IN&nbsp;&nbsp;{time}
-        </div>
+        </a>
         <div className="flex items-center gap-1.5">
           {mounted && (
             <button
@@ -150,8 +150,10 @@ export function Hero({ profile }: HeroProps) {
               )}
             </button>
           )}
-          <i className="bi bi-geo-alt text-xs" />
-          <span>{data.location}</span>
+          <a href="https://www.google.com/maps/place/Vijayawada" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 hover:text-[var(--accent)] transition-colors">
+            <i className="bi bi-geo-alt text-xs" />
+            <span>{data.location}</span>
+          </a>
         </div>
       </div>
 
@@ -269,9 +271,9 @@ export function Hero({ profile }: HeroProps) {
           href="https://x.com/priyankapudi"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 px-3 py-2 sm:px-5 sm:py-2.5 text-xs sm:text-sm rounded-full bg-[var(--muted)] border border-green-500 hover:border-green-400 transition-all"
+          className="inline-flex items-center gap-2 px-3 py-2 sm:px-5 sm:py-2.5 text-xs sm:text-sm rounded-full bg-[var(--muted)] border border-green-600 hover:border-green-500 transition-all"
         >
-          <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-green-500 animate-pulse" />
+          <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-green-600 animate-pulse" />
           I am super active here, just hire me with dm
           <i className="bi bi-twitter-x text-xs sm:text-sm" />
         </a>
