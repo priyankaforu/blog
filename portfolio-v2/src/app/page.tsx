@@ -4,6 +4,7 @@ import { Testimonials } from "@/components/sections/testimonials"
 import { Skills } from "@/components/sections/skills"
 import { Projects } from "@/components/sections/projects"
 import { Ideas } from "@/components/sections/ideas"
+import { RoughDrafts } from "@/components/sections/rough-drafts"
 import { Blog } from "@/components/sections/blog"
 import { Footer } from "@/components/sections/footer"
 
@@ -42,6 +43,7 @@ export default async function Home() {
       <Skills skills={skills} />
       <Projects projects={projects} />
       <Ideas />
+      <RoughDrafts />
       <Blog posts={posts} />
       <Footer />
     </main>
