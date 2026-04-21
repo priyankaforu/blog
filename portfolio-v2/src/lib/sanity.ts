@@ -16,7 +16,11 @@ export function urlFor(source: any) {
 
 export function getFileUrl(ref: string) {
   // Sanity file refs look like: file-<id>-<extension>
-  const [, id, ext] = ref.split('-')
+  // The id itself can contain hyphens, so we split carefully
+  const parts = ref.split('-')
+  // first part is "file", last part is extension, everything in between is the id
+  const ext = parts[parts.length - 1]
+  const id = parts.slice(1, -1).join('-')
   const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || ''
   const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET || 'production'
   return `https://cdn.sanity.io/files/${projectId}/${dataset}/${id}.${ext}`

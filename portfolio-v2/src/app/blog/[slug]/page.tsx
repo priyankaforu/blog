@@ -4,6 +4,7 @@ import "bootstrap-icons/font/bootstrap-icons.css"
 import { client, queries, urlFor, getFileUrl } from "@/lib/sanity"
 import { notFound } from "next/navigation"
 import { PortableText } from "@portabletext/react"
+import PdfViewer from "@/components/pdf-viewer"
 
 interface Props {
   params: Promise<{ slug: string }>
@@ -104,31 +105,7 @@ export default async function BlogPost({ params }: Props) {
                   pdfEmbed: ({ value }: { value: any }) => {
                     if (!value?.file?.asset?._ref) return null
                     const pdfUrl = getFileUrl(value.file.asset._ref)
-                    return (
-                      <div className="my-8">
-                        {value.title && (
-                          <h3 className="text-lg font-semibold mb-3">{value.title}</h3>
-                        )}
-                        <div className="rounded-lg overflow-hidden border" style={{ borderColor: 'var(--border)' }}>
-                          <iframe
-                            src={`${pdfUrl}#toolbar=1&navpanes=0`}
-                            className="w-full"
-                            style={{ height: '80vh', minHeight: '600px' }}
-                            title={value.title || 'Embedded PDF'}
-                          />
-                        </div>
-                        <a
-                          href={pdfUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center gap-2 text-sm mt-3 px-4 py-2 rounded-full transition-all hover:border-blue-500"
-                          style={{ backgroundColor: 'var(--muted)', color: 'var(--foreground)', borderWidth: '1px', borderColor: 'var(--border)' }}
-                        >
-                          <i className="bi bi-download" />
-                          Download PDF
-                        </a>
-                      </div>
-                    )
+                    return <PdfViewer url={pdfUrl} title={value.title} />
                   },
                   dataTable: ({ value }: { value: any }) => {
                     const headers: string[] = value?.headers || []

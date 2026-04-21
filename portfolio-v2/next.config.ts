@@ -12,6 +12,12 @@ const nextConfig: NextConfig = {
       { protocol: 'https', hostname: 'cdn.sanity.io' },
     ],
   },
+  webpack: (config) => {
+    // react-pdf uses canvas which isn't available server-side
+    config.resolve.alias.canvas = false
+    return config
+  },
+  turbopack: {},
 };
 
 export default nextConfig;
