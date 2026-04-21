@@ -1,5 +1,5 @@
 import { defineType, defineField } from 'sanity'
-import { FaFilePdf } from 'react-icons/fa'
+import { FaFilePdf, FaTable } from 'react-icons/fa'
 
 export default defineType({
   name: 'post',
@@ -128,6 +128,63 @@ export default defineType({
               return {
                 title: title || 'PDF Embed',
                 subtitle: 'Embedded PDF document',
+              }
+            },
+          },
+        },
+        {
+          type: 'object',
+          name: 'dataTable',
+          title: 'Table',
+          icon: FaTable,
+          fields: [
+            {
+              name: 'title',
+              title: 'Table Title',
+              type: 'string',
+              description: 'Optional heading above the table',
+            },
+            {
+              name: 'headers',
+              title: 'Column Headers',
+              type: 'array',
+              of: [{ type: 'string' }],
+              validation: (Rule: any) => Rule.required().min(1),
+            },
+            {
+              name: 'rows',
+              title: 'Rows',
+              type: 'array',
+              of: [
+                {
+                  type: 'object',
+                  name: 'tableRow',
+                  fields: [
+                    {
+                      name: 'cells',
+                      title: 'Cells',
+                      type: 'array',
+                      of: [{ type: 'string' }],
+                    },
+                  ],
+                  preview: {
+                    select: { cells: 'cells' },
+                    prepare({ cells }: { cells?: string[] }) {
+                      return {
+                        title: cells?.join(' | ') || 'Empty row',
+                      }
+                    },
+                  },
+                },
+              ],
+            },
+          ],
+          preview: {
+            select: { title: 'title' },
+            prepare({ title }: { title?: string }) {
+              return {
+                title: title || 'Table',
+                subtitle: 'Data table',
               }
             },
           },

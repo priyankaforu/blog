@@ -130,6 +130,49 @@ export default async function BlogPost({ params }: Props) {
                       </div>
                     )
                   },
+                  dataTable: ({ value }: { value: any }) => {
+                    const headers: string[] = value?.headers || []
+                    const rows: { cells?: string[] }[] = value?.rows || []
+                    return (
+                      <div className="my-8 overflow-x-auto">
+                        {value.title && (
+                          <h3 className="text-lg font-semibold mb-3">{value.title}</h3>
+                        )}
+                        <table className="w-full text-sm border-collapse rounded-lg overflow-hidden" style={{ borderWidth: '1px', borderColor: 'var(--border)' }}>
+                          {headers.length > 0 && (
+                            <thead>
+                              <tr style={{ backgroundColor: 'var(--muted)' }}>
+                                {headers.map((h: string, i: number) => (
+                                  <th
+                                    key={i}
+                                    className="text-left px-4 py-3 font-semibold"
+                                    style={{ borderBottomWidth: '1px', borderColor: 'var(--border)', color: 'var(--foreground)' }}
+                                  >
+                                    {h}
+                                  </th>
+                                ))}
+                              </tr>
+                            </thead>
+                          )}
+                          <tbody>
+                            {rows.map((row, ri) => (
+                              <tr key={ri} className="transition-colors" style={ri % 2 === 1 ? { backgroundColor: 'var(--muted)', opacity: 0.7 } : {}}>
+                                {(row.cells || []).map((cell: string, ci: number) => (
+                                  <td
+                                    key={ci}
+                                    className="px-4 py-3"
+                                    style={{ borderBottomWidth: '1px', borderColor: 'var(--border)', color: 'var(--foreground)' }}
+                                  >
+                                    {cell}
+                                  </td>
+                                ))}
+                              </tr>
+                            ))}
+                          </tbody>
+                        </table>
+                      </div>
+                    )
+                  },
                 },
               }}
             />
