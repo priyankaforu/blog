@@ -14,6 +14,14 @@ export function urlFor(source: any) {
   return builder.image(source)
 }
 
+export function getFileUrl(ref: string) {
+  // Sanity file refs look like: file-<id>-<extension>
+  const [, id, ext] = ref.split('-')
+  const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || ''
+  const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET || 'production'
+  return `https://cdn.sanity.io/files/${projectId}/${dataset}/${id}.${ext}`
+}
+
 // Queries
 export const queries = {
   profile: `*[_type == "profile"][0]{

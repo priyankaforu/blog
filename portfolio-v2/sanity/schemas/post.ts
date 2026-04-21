@@ -1,4 +1,5 @@
 import { defineType, defineField } from 'sanity'
+import { FaFilePdf } from 'react-icons/fa'
 
 export default defineType({
   name: 'post',
@@ -96,6 +97,40 @@ export default defineType({
               title: 'Alt Text',
             },
           ],
+        },
+        {
+          type: 'object',
+          name: 'pdfEmbed',
+          title: 'PDF Embed',
+          icon: FaFilePdf,
+          fields: [
+            {
+              name: 'file',
+              title: 'PDF File',
+              type: 'file',
+              options: {
+                accept: '.pdf',
+              },
+              validation: (Rule: any) => Rule.required(),
+            },
+            {
+              name: 'title',
+              title: 'Display Title',
+              type: 'string',
+              description: 'Optional title shown above the embedded PDF',
+            },
+          ],
+          preview: {
+            select: {
+              title: 'title',
+            },
+            prepare({ title }: { title?: string }) {
+              return {
+                title: title || 'PDF Embed',
+                subtitle: 'Embedded PDF document',
+              }
+            },
+          },
         },
         {
           type: 'code',
