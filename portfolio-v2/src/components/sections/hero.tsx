@@ -190,7 +190,7 @@ export function Hero({ profile }: HeroProps) {
               {linkCopied && <span className="text-xs text-green-600">Link copied!</span>}
             </button>
             <a
-              href="https://drive.google.com/file/d/1U2yej9hKHxyfYXaNG1_V6p9pBRBA2Ejr/view?usp=sharing"
+              href="https://drive.google.com/file/d/1NQemVjbvO-W0CZD2KT0PmHbKGLrvSiuB/view?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
               className="hidden sm:inline-flex items-center gap-2 px-4 py-1.5 text-xs sm:text-sm rounded-full bg-[var(--muted)] hover:border-blue-500 hover:text-[var(--accent)] transition-all ml-auto"
@@ -242,23 +242,23 @@ export function Hero({ profile }: HeroProps) {
       {/* Bio */}
       <div className="text-sm mb-4 leading-relaxed space-y-3" style={{ color: 'var(--foreground)', opacity: 0.85 }}>
         <p>
-          I have studied <span className="font-medium" style={{ color: 'var(--accent)' }}>Electrical Engineering</span> for 4 years and got nothing out of it except some mugged up formulae. But I have to agree that my final year has taught me a little about automating stuff using <span className="font-medium" style={{ color: 'var(--accent)' }}>PLCs</span>. Later I have been in <span className="font-medium" style={{ color: 'var(--accent)' }}>Germany</span> for almost 5 years and I can proudly say, this time has <span className="font-medium" style={{ color: 'var(--accent)' }}>transformed me completely</span> who I am now.
+          <span className="font-medium" style={{ color: 'var(--accent)' }}>4 years of electrical engineering</span> taught me how systems work at their core. <span className="font-medium" style={{ color: 'var(--accent)' }}>5 years in Germany</span> taught me how to build them for real users.
         </p>
         <p>
-          I love building <span className="font-medium" style={{ color: 'var(--accent)' }}>end-to-end solutions</span>. I can work with any tech stack because I&apos;m a focused learner who picks up whatever&apos;s needed to bring a product to life — whether it&apos;s <span className="font-medium" style={{ color: 'var(--accent)' }}>hardware or software</span>. My agenda? <span className="font-medium" style={{ color: 'var(--accent)' }}>Accomplish what you desire</span>. Need me to build for your users or build for you? I jump on it and craft solutions <span className="font-medium" style={{ color: 'var(--accent)' }}>within hours, not months</span>.
+          I&apos;m a <span className="font-medium" style={{ color: 'var(--accent)' }}>full-stack developer</span> who ships <span className="font-medium" style={{ color: 'var(--accent)' }}>end-to-end products</span>: from database design to deployment, auth to real-time features. I&apos;ve built and launched multiple products with <span className="font-medium" style={{ color: 'var(--accent)' }}>paying customers</span>, and I pick up whatever stack the problem demands. Currently going deep on <span className="font-medium" style={{ color: 'var(--accent)' }}>Applied AI</span>: building with LLMs, voice agents, and integrating AI into real products.
         </p>
         <p>
-          Got nightmares with bug fixes or broken systems? Don&apos;t worry — I&apos;m here to even fix your toilet flush at 2 AM. Sounds like a joke, but that&apos;s the truth about who&apos;s gonna work for you. I <span className="font-medium" style={{ color: 'var(--accent)' }}>love fixing chaos</span>, work with clarity, and communicate honestly. Straight and simple.
+          I don&apos;t take months to deliver. I <span className="font-medium" style={{ color: 'var(--accent)' }}>scope fast, build fast</span>, and communicate honestly throughout. Got a broken system at 2 AM? I&apos;ll fix that too.
         </p>
-        <p style={{ color: 'var(--muted-foreground)' }}>
-          Okay, that&apos;s the raw talk about me. Now go ahead — hover over my skills and explore my portfolio below.
+        <p>
+          If you need someone who treats your product like their own and gets things out the door, <span className="font-medium" style={{ color: 'var(--accent)' }}>let&apos;s talk</span>.
         </p>
       </div>
 
       {/* CTA Buttons */}
       <div className="flex flex-wrap gap-2 mb-3">
         <a
-          href="https://drive.google.com/file/d/1U2yej9hKHxyfYXaNG1_V6p9pBRBA2Ejr/view?usp=sharing"
+          href="https://drive.google.com/file/d/1NQemVjbvO-W0CZD2KT0PmHbKGLrvSiuB/view?usp=sharing"
           target="_blank"
           rel="noopener noreferrer"
           className="sm:hidden inline-flex items-center gap-2 px-3 py-2 text-xs rounded-full bg-[var(--muted)] hover:border-blue-500 hover:text-[var(--accent)] transition-all"
