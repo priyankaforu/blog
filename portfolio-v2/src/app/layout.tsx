@@ -20,17 +20,17 @@ export const metadata: Metadata = {
   keywords: ["developer", "full-stack", "product builder", "freelancer", "web development", "software engineer", "hire developer"],
   authors: [{ name: "Priyanka Pudi" }],
   creator: "Priyanka Pudi",
-  metadataBase: new URL("https://priyankapudi.com"),
+  metadataBase: new URL("https://priyankapudi.online"),
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://priyankapudi.com",
+    url: "https://priyankapudi.online",
     siteName: "Priyanka Pudi",
     title: "Priyanka Pudi | Freelancer, Builder, Problem Solver, Your Next Best Hire",
     description: "I ship products in hours, not months. End-to-end solutions, any tech stack. Got chaos? I fix it. From bug nightmares to broken systems — I'm here to help you build what matters.",
     images: [
       {
-        url: "https://priyankapudi.com/profile.png",
+        url: "https://priyankapudi.online/profile.png",
         width: 800,
         height: 800,
         alt: "Priyanka Pudi - Developer & Product Builder",
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     title: "Priyanka Pudi | Freelancer, Builder, Problem Solver, Your Next Best Hire",
     description: "I ship products in hours, not months. End-to-end solutions, any tech stack. Got chaos? I fix it.",
     creator: "@priyankapudi",
-    images: ["https://priyankapudi.com/profile.png"],
+    images: ["https://priyankapudi.online/profile.png"],
   },
   icons: {
     icon: "/favicon.png",
@@ -78,8 +78,8 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "Person",
               name: "Priyanka Pudi",
-              url: "https://priyankapudi.com",
-              image: "https://priyankapudi.com/profile.png",
+              url: "https://priyankapudi.online",
+              image: "https://priyankapudi.online/profile.png",
               jobTitle: "Freelancer & Full-Stack Developer",
               description:
                 "Priyanka Pudi is a freelancer, builder, and problem solver who ships products end-to-end.",

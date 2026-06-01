@@ -76,7 +76,7 @@ export function Hero({ profile }: HeroProps) {
   }
 
   const handleShareProfile = async () => {
-    const url = 'https://priyankapudi.com'
+    const url = 'https://priyankapudi.online'
     
     // Check if it's a mobile device with native share
     const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent)
@@ -118,7 +118,7 @@ export function Hero({ profile }: HeroProps) {
     tagline: "An Electrical Engineer, Mastering Computers",
     bio: "I have studied Electrical Engineering for 4 years and got nothing out of it except some mugged up formulae. But I have to agree that my final year has taught me a little about automating stuff using PLCs. Later I have been in Germany for almost 5 years and I can proudly say, this time has transformed me completely who I am now.",
     location: "Vijayawada, India",
-    email: "hello@priyankapudi.com",
+    email: "hello@priyankapudi.online",
     availableForWork: true,
     socials: [
       { platform: "github", url: "https://github.com/priyankaforu", username: "priyankaforu" },

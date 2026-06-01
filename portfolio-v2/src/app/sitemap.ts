@@ -2,7 +2,7 @@ import { MetadataRoute } from "next"
 import { client, queries } from "@/lib/sanity"
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = "https://priyankapudi.com"
+  const baseUrl = "https://priyankapudi.online"
 
   // Static pages
   const staticPages: MetadataRoute.Sitemap = [
