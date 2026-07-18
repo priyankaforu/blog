@@ -1,16 +1,16 @@
-import Link from "next/link"
-import Image from "next/image"
-import "bootstrap-icons/font/bootstrap-icons.css"
-import { client, queries, urlFor } from "@/lib/sanity"
+import Link from "next/link";
+import Image from "next/image";
+import "bootstrap-icons/font/bootstrap-icons.css";
+import { client, queries, urlFor } from "@/lib/sanity";
 
 interface Post {
-  _id: string
-  title: string
-  slug: { current: string }
-  excerpt?: string
-  publishedAt: string
-  tags?: string[]
-  coverImage?: { _type: string; asset: { _ref: string; _type: string } }
+  _id: string;
+  title: string;
+  slug: { current: string };
+  excerpt?: string;
+  publishedAt: string;
+  tags?: string[];
+  coverImage?: { _type: string; asset: { _ref: string; _type: string } };
 }
 
 // Fallback posts
@@ -21,7 +21,7 @@ const fallbackPosts: Post[] = [
     slug: { current: "the-evens-of-unlike" },
     excerpt: "The world encourages, only if you fit in the junk around you...",
     publishedAt: "2025-06-02",
-    tags: ["philosophy", "personal-growth"]
+    tags: ["philosophy", "personal-growth"],
   },
   {
     _id: "2",
@@ -29,7 +29,7 @@ const fallbackPosts: Post[] = [
     slug: { current: "being-priceless" },
     excerpt: "What is the price that I can get your time for? Answer yourself!",
     publishedAt: "2024-10-28",
-    tags: ["philosophy", "personal-growth"]
+    tags: ["philosophy", "personal-growth"],
   },
   {
     _id: "3",
@@ -37,16 +37,16 @@ const fallbackPosts: Post[] = [
     slug: { current: "zero-player-game" },
     excerpt: "Exploring the concept of games that play themselves...",
     publishedAt: "2024-10-07",
-    tags: ["computers", "technology"]
-  }
-]
+    tags: ["computers", "technology"],
+  },
+];
 
 async function getPosts() {
   try {
-    const posts = await client.fetch(queries.posts)
-    return posts?.length ? posts : fallbackPosts
+    const posts = await client.fetch(queries.posts);
+    return posts?.length ? posts : fallbackPosts;
   } catch {
-    return fallbackPosts
+    return fallbackPosts;
   }
 }
 
@@ -54,17 +54,16 @@ function formatDate(dateString: string) {
   return new Date(dateString).toLocaleDateString("en-US", {
     day: "2-digit",
     month: "short",
-    year: "numeric"
-  })
+    year: "numeric",
+  });
 }
 
 export default async function BlogPage() {
-  const posts = await getPosts()
+  const posts = await getPosts();
 
   return (
     <main className="min-h-screen px-6 py-12 max-w-3xl mx-auto mt-12">
-
-      <div className="border-t border-[var(--border)] pt-4 mb-6">
+      <div className="border-b border-[var(--border)] pb-4 mb-6">
         <h1 className="text-xl font-bold tracking-tight font-mono">
           All Posts{" "}
           <span className="text-zinc-500 text-sm font-normal font-sans">
@@ -128,5 +127,5 @@ export default async function BlogPage() {
         ))}
       </div>
     </main>
-  )
+  );
 }
