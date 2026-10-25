@@ -38,7 +38,7 @@ export function Hero() {
       <section className="flex flex-col justify-start pb-6">
         {/* Bio */}
         <div
-          className="text-sm mb-4 leading-relaxed space-y-3"
+          className="text-base mb-6 leading-relaxed space-y-4"
           style={{ color: "var(--foreground)" }}
         >
           <p>
