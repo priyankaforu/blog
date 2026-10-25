@@ -123,7 +123,7 @@ export function Hero() {
         {/* CTA Buttons */}
         <div className="flex flex-wrap gap-2 mb-3">
           <a
-            href="https://drive.google.com/drive/folders/1CriznPDDELu4EqGb0NNuMolr0NJKCP5s"
+            href="https://drive.google.com/file/d/1z0ePGLEKKLjCBI6dw-jX9uoMn4OBb4kN/view?usp=sharing"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-3 py-2 sm:px-5 sm:py-2.5 text-xs sm:text-sm rounded-full bg-[var(--muted)] hover:border-[var(--accent)] hover:text-[var(--accent)] transition-all"
