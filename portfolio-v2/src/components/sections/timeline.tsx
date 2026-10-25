@@ -14,7 +14,7 @@ const entries: TimelineEntry[] = [
     place: "Filently",
     placeUrl: "https://filently.com",
     summary:
-      "Building Filently, an app that files your documents into Google Drive and other cloud drives automatically.",
+      "Working at Filently, which files your documents into Google Drive and other cloud drives automatically.",
     isCurrent: true,
   },
   {
