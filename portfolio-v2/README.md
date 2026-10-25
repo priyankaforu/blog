@@ -1,36 +1,48 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portfolio and blog
 
-## Getting Started
+The personal site at priyankapudi.online. This file explains how to run it and how to write a blog post.
 
-First, run the development server:
+## Run it
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Then open http://localhost:3000.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Write a post
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+A post is one Markdown file in `posts/`. The file name becomes the address: `posts/my-post.md` is shown at `/blog/my-post`.
 
-## Learn More
+Start the file with this block:
 
-To learn more about Next.js, take a look at the following resources:
+```md
+---
+title: "The title of the post"
+date: 2026-10-25
+description: "One or two sentences. Shown in the post list and when the link is shared."
+tags: ["tech", "backend"]
+cover: /blog/my-post/cover.png
+---
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- `description`, `tags` and `cover` are optional.
+- `cover` is the image shown when someone shares the link. It is not shown on the page; put it in the text too if you want readers to see it.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Write the text in normal Markdown: headings, lists, quotes, tables, links and code blocks. Give each code block its language (for example `ts` or `python`) to get colours.
 
-## Deploy on Vercel
+### Images and PDFs
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Put the files in `public/blog/<post-name>/`, then reference them from the post without `public`:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```md
+![What the image shows](/blog/my-post/diagram.png "Caption under the image")
+
+![Title shown above the PDF](/blog/my-post/report.pdf)
+```
+
+An image on its own line is shown full width with its caption. A `.pdf` written the same way is shown inside the page, with a button to open it.
+
+### Publish
+
+Commit the new files and push. The site builds every post into a plain page, so a post is live after the next deploy.

@@ -1,7 +1,13 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
+import Image from "next/image";
+import Link from "next/link";
+import "bootstrap-icons/font/bootstrap-icons.css";
 import { ThemeToggle } from "@/components/theme-toggle";
+import { SiteNav } from "@/components/site-nav";
+import { LocalTime } from "@/components/local-time";
+import { Footer } from "@/components/footer";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -112,8 +118,41 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <ThemeToggle />
-          {children}
+          <div
+            className="flex items-center justify-between text-sm px-4 sm:px-6 pt-4 w-full"
+            style={{ fontFamily: "'Onest', sans-serif" }}
+          >
+            <LocalTime />
+            <ThemeToggle />
+          </div>
+
+          <div className="mx-auto max-w-6xl px-6 pt-6 pb-8 md:px-10 md:pt-10 md:pb-16 md:grid md:grid-cols-[160px_minmax(0,1fr)] md:gap-16">
+            <aside className="flex items-center justify-between gap-4 mb-10 md:mb-0 md:flex-col md:items-start md:justify-start md:gap-12 md:sticky md:top-16 md:self-start">
+              <Link href="/" aria-label="Home">
+                <Image
+                  src="/profile.png"
+                  alt="Priyanka Pudi"
+                  width={56}
+                  height={56}
+                  className="rounded-full object-cover object-top w-12 h-12 md:w-14 md:h-14"
+                  priority
+                />
+              </Link>
+              <SiteNav />
+            </aside>
+
+            <div className="min-w-0 max-w-3xl">
+              <Link
+                href="/"
+                className="hidden md:block text-xl font-bold uppercase tracking-[0.08em] mb-16"
+                style={{ fontFamily: "'Onest', sans-serif" }}
+              >
+                Priyanka Pudi
+              </Link>
+              {children}
+              <Footer />
+            </div>
+          </div>
         </ThemeProvider>
       </body>
     </html>

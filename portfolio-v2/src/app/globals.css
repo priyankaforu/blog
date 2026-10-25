@@ -1,39 +1,30 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
-@custom variant dark (&:where(.dark, .dark *));
+@custom-variant dark (&:where(.dark, .dark *));
 
 :root {
   --background: #f5f0e8;
   --foreground: #1a1a1a;
-  --primary: #1e3a5f;
   --muted: #ebe5d9;
   --muted-foreground: #5c564e;
   --border: #c4baa8;
   --card: #e2d9c8;
-  --accent: #0047AB;
-  --text-secondary: #3a3530;
-  --badge-text: #ffffff;
-  --badge-bg: rgba(146, 64, 14, 0.9);
-  --badge-border: rgba(146, 64, 14, 0.5);
+  --accent: #1a7a2e;
   --cv-text: #1a1a1a;
   --cv-border: #3a3530;
 }
 
+/* Kanagawa Dragon, from the Kanagawa colour theme */
 .dark {
-  --background: #121212;
-  --foreground: #e8e6e3;
-  --primary: #60a5fa;
-  --muted: #1e1e1e;
-  --muted-foreground: #a1a1aa;
-  --border: #2a2a2a;
-  --card: #1a1a1a;
-  --accent: #7cb8ff;
-  --text-secondary: #d4d4d8;
-  --badge-text: #facc15;
-  --badge-bg: rgba(234, 179, 8, 0.2);
-  --badge-border: rgba(234, 179, 8, 0.3);
-  --cv-text: #d4d4d8;
-  --cv-border: #52525b;
+  --background: #181616;
+  --foreground: #c5c9c5;
+  --muted: #282727;
+  --muted-foreground: #9e9b93;
+  --border: #393836;
+  --card: #1d1c19;
+  --accent: #9ece6a;
+  --cv-text: #c5c9c5;
+  --cv-border: #625e5a;
 }
 
 body {
@@ -71,251 +62,31 @@ html {
   opacity: 0.5;
 }
 
-/* Blog post hover styles - Light mode */
-.blog-post-link {
-  background-color: transparent;
-}
-
-.blog-post-title {
-  color: #1a1a1a;
-}
-
-.blog-post-date {
-  color: #5c564e;
-}
-
-.blog-post-icon {
-  color: #5c564e;
-}
-
-.blog-post-link:hover {
-  background-color: #ebe5d9;
-}
-
-.blog-post-link:hover .blog-post-title {
-  color: #1e3a5f;
-}
-
-.blog-post-link:hover .blog-post-date {
-  color: #3a3530;
-}
-
-.blog-post-link:hover .blog-post-icon {
-  color: #1e3a5f;
-}
-
-/* Blog post hover styles - Dark mode */
-.dark .blog-post-title {
-  color: #fafafa;
-}
-
-.dark .blog-post-date {
-  color: #a1a1aa;
-}
-
-.dark .blog-post-icon {
-  color: #a1a1aa;
-}
-
-.dark .blog-post-link:hover {
-  background-color: rgba(39, 39, 42, 0.5);
-}
-
-.dark .blog-post-link:hover .blog-post-title {
-  color: #60a5fa;
-}
-
-.dark .blog-post-link:hover .blog-post-date {
-  color: #d4d4d8;
-}
-
-.dark .blog-post-link:hover .blog-post-icon {
-  color: #60a5fa;
-}
-
-/* Skill badge styles - Light mode */
-.skill-badge {
-  background-color: #ebe5d9;
-  border-color: #d6cfc4;
-  color: #1a1a1a;
-}
-
-.skill-badge:hover {
-  background-color: #1e3a5f;
-  border-color: #1e3a5f;
-  color: #ffffff;
-}
-
-/* Skill badge styles - Dark mode */
-.dark .skill-badge {
-  background-color: #27272a;
-  border-color: #3f3f46;
-  color: #fafafa;
-}
-
-.dark .skill-badge:hover {
-  background-color: #60a5fa;
-  border-color: #60a5fa;
-  color: #18181b;
-}
-
-/* Blog post card styles (All Posts page) - Light mode */
-.blog-post-card {
-  border-color: #d6cfc4;
-  background-color: transparent;
-}
-
-.blog-post-card-title {
-  color: #1a1a1a;
-}
-
-.blog-post-card-excerpt {
-  color: #5c564e;
-}
-
-.blog-post-card-date {
-  color: #5c564e;
-}
-
-.blog-post-card-icon {
-  color: #5c564e;
-}
-
-.blog-post-card:hover {
-  border-color: #1e3a5f;
-  background-color: #ebe5d9;
-}
-
-.blog-post-card:hover .blog-post-card-title {
-  color: #1e3a5f;
-}
-
-.blog-post-card:hover .blog-post-card-excerpt {
-  color: #3a3530;
-}
-
-.blog-post-card:hover .blog-post-card-date {
-  color: #3a3530;
-}
-
-.blog-post-card:hover .blog-post-card-icon {
-  color: #1e3a5f;
-}
-
-/* Blog post card styles (All Posts page) - Dark mode */
-.dark .blog-post-card {
-  border-color: #27272a;
-}
-
-.dark .blog-post-card-title {
-  color: #fafafa;
-}
-
-.dark .blog-post-card-excerpt {
-  color: #a1a1aa;
-}
-
-.dark .blog-post-card-date {
-  color: #71717a;
-}
-
-.dark .blog-post-card-icon {
-  color: #a1a1aa;
-}
-
-.dark .blog-post-card:hover {
-  border-color: #3f3f46;
-  background-color: rgba(39, 39, 42, 0.5);
-}
-
-.dark .blog-post-card:hover .blog-post-card-title {
-  color: #60a5fa;
-}
-
-.dark .blog-post-card:hover .blog-post-card-excerpt {
-  color: #d4d4d8;
-}
-
-.dark .blog-post-card:hover .blog-post-card-date {
-  color: #d4d4d8;
-}
-
-.dark .blog-post-card:hover .blog-post-card-icon {
-  color: #60a5fa;
-}
-
-/* Glassmorphism buttons - Light mode */
-.glass-button {
-  background: rgba(235, 229, 217, 0.6);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid #d6cfc4;
-  border-radius: 9999px;
-  transition: all 0.3s ease;
-}
-
-.glass-button:hover {
-  background: #1e3a5f;
-  border-color: #1e3a5f;
-  color: #ffffff;
-}
-
-/* Glassmorphism buttons - Dark mode */
-.dark .glass-button {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-}
-
-.dark .glass-button:hover {
-  background: #3b82f6;
-  border-color: #3b82f6;
-  color: #ffffff;
-}
-
-/* Tweet embed styles - Light mode */
-:not(.dark) [data-theme="light"] {
+/* Tweet colours; the selectors outrank react-tweet's own light and dark themes */
+:root:not(.dark) .react-tweet-theme {
   --tweet-bg-color: #efe9dd;
   --tweet-bg-color-hover: #ebe5d9;
   --tweet-border: 1px solid #d6cfc4;
+  --tweet-skeleton-gradient: linear-gradient(270deg, #ebe5d9, #e2d9c8, #e2d9c8, #ebe5d9);
   --tweet-color-text-primary: #1a1a1a;
   --tweet-color-text-secondary: #5c564e;
   --tweet-color-text-secondary-hover: #3a3530;
-  --tweet-color-blue-primary: #1e3a5f;
-  --tweet-color-blue-secondary: #15294a;
+  --tweet-color-blue-primary: var(--accent);
+  --tweet-color-blue-secondary: var(--accent);
   --tweet-font-family: inherit;
 }
 
-/* Tweet embed styles */
-.tweet-container {
-  --tweet-container-margin: 0;
-}
-
-.tweet-container [data-theme="light"] {
-  --tweet-bg-color: #18181b;
-  --tweet-border: 1px solid #27272a;
-}
-
-/* Override react-tweet styles for dark theme */
-.dark [data-theme="light"] {
-  --tweet-bg-color: rgba(24, 24, 27, 0.5);
-  --tweet-bg-color-hover: rgba(39, 39, 42, 0.5);
-  --tweet-border: 1px solid #27272a;
-  --tweet-color-text-primary: #fafafa;
-  --tweet-color-text-secondary: #a1a1aa;
-  --tweet-color-text-secondary-hover: #d4d4d8;
-  --tweet-color-blue-primary: #60a5fa;
-  --tweet-color-blue-secondary: #3b82f6;
+.dark .react-tweet-theme {
+  --tweet-bg-color: #1d1c19;
+  --tweet-bg-color-hover: #282727;
+  --tweet-border: 1px solid #393836;
+  --tweet-skeleton-gradient: linear-gradient(270deg, #282727, #393836, #393836, #282727);
+  --tweet-color-text-primary: #c5c9c5;
+  --tweet-color-text-secondary: #9e9b93;
+  --tweet-color-text-secondary-hover: #c5c9c5;
+  --tweet-color-blue-primary: var(--accent);
+  --tweet-color-blue-secondary: var(--accent);
   --tweet-font-family: inherit;
-}
-
-
-/* Hide scrollbar */
-.scrollbar-hide {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-.scrollbar-hide::-webkit-scrollbar {
-  display: none;
 }
 
 /* Prose overrides for newspaper light theme */
@@ -332,9 +103,20 @@ html {
   --tw-prose-quote-borders: var(--border) !important;
   --tw-prose-captions: var(--muted-foreground) !important;
   --tw-prose-code: var(--foreground) !important;
-  --tw-prose-pre-code: #e8e6e3 !important;
-  --tw-prose-pre-bg: #1a1a1a !important;
+  --tw-prose-pre-code: var(--foreground) !important;
+  --tw-prose-pre-bg: var(--card) !important;
   --tw-prose-th-borders: var(--border) !important;
   --tw-prose-td-borders: var(--border) !important;
   color: var(--foreground) !important;
+}
+
+/* Code blocks: Shiki writes light colours inline and dark ones as variables */
+.dark .shiki,
+.dark .shiki span {
+  color: var(--shiki-dark) !important;
+  background-color: var(--shiki-dark-bg) !important;
+}
+
+.prose pre {
+  border: 1px solid var(--border);
 }

@@ -1,51 +1,30 @@
-import { client, queries } from "@/lib/sanity"
-import { Hero } from "@/components/sections/hero"
-import { Testimonials } from "@/components/sections/testimonials"
-import { Skills } from "@/components/sections/skills"
-import { Projects } from "@/components/sections/projects"
-import { Ideas } from "@/components/sections/ideas"
-import { RoughDrafts } from "@/components/sections/rough-drafts"
-import { Blog } from "@/components/sections/blog"
-import { Footer } from "@/components/sections/footer"
+import Link from "next/link";
+import { formatPostDate, listPosts } from "@/lib/posts";
 
-// Revalidate every 60 seconds for faster subsequent loads
-export const revalidate = 60
-
-// Helper to add timeout to promises
-function withTimeout<T>(promise: Promise<T>, ms: number): Promise<T | null> {
-  const timeout = new Promise<null>((resolve) => setTimeout(() => resolve(null), ms))
-  return Promise.race([promise, timeout])
-}
-
-async function getData() {
-  try {
-    const [profile, skills, projects, posts] = await Promise.all([
-      withTimeout(client.fetch(queries.profile), 3000),
-      withTimeout(client.fetch(queries.skills), 3000),
-      withTimeout(client.fetch(queries.projects), 3000),
-      withTimeout(client.fetch(queries.posts), 3000),
-    ])
-    return { profile, skills, projects, posts: posts || [] }
-  } catch (error) {
-    // Return null if Sanity isn't configured yet
-    console.log("Sanity not configured, using fallback data")
-    return { profile: null, skills: null, projects: null, posts: [] }
-  }
-}
-
-export default async function Home() {
-  const { profile, skills, projects, posts } = await getData()
-
+export default function WritingPage() {
   return (
-    <main className="min-h-screen">
-      <Hero profile={profile} />
-      <Testimonials />
-      <Skills skills={skills} />
-      <Projects projects={projects} />
-      <Ideas />
-      <RoughDrafts />
-      <Blog posts={posts} />
-      <Footer />
+    <main>
+      <h1 className="sr-only">Writing</h1>
+      <ul>
+        {listPosts().map((post) => (
+          <li key={post.slug}>
+            <Link
+              href={`/blog/${post.slug}`}
+              className="group flex flex-col gap-1 py-4 border-b border-[var(--border)] sm:flex-row sm:items-baseline sm:justify-between sm:gap-8"
+            >
+              <h2 className="text-lg font-semibold group-hover:text-[var(--accent)] transition-colors">
+                {post.title}
+              </h2>
+              <time
+                dateTime={post.date}
+                className="shrink-0 sm:w-40 text-[var(--muted-foreground)]"
+              >
+                {formatPostDate(post.date)}
+              </time>
+            </Link>
+          </li>
+        ))}
+      </ul>
     </main>
-  )
+  );
 }

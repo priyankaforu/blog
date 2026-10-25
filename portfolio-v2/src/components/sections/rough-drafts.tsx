@@ -1,10 +1,10 @@
 export function RoughDrafts() {
   return (
-    <section className="px-6 py-4 max-w-3xl mx-auto">
-      <div className="border-t border-[var(--border)] pt-4 mb-4">
+    <section>
+      <div className="mb-4">
         <h2 className="text-xl font-bold tracking-tight mb-1 font-mono">
           Rough Drafts{" "}
-          <span className="text-zinc-500 text-sm font-normal font-sans">
+          <span className="text-[var(--muted-foreground)] text-sm font-normal font-sans">
             notes & thinking out loud
           </span>
         </h2>
